@@ -54,6 +54,8 @@ alias 'get'='sudo pacman -S'
 alias 'del'='sudo pacman -R'
 alias 'grep'='grep --color'
 alias 'svelte'='npx degit sveltejs/template'
+alias 'sapper'='npx degit "sveltejs/sapper-template#rollup"'
+
 alias 'robotdb'='/opt/robo_mongodb/bin/robo3t'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
