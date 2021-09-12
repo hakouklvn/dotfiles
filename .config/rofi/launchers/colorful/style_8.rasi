@@ -101,11 +101,16 @@ element {
 }
 
 element-icon {
-    size:                           24px;
+    background-color:               @al;
+
+    size:                           30px;
     border:                         0px;
 }
 
 element-text {
+    background-color:               @al;
+    text-color:                     @fg;
+
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;

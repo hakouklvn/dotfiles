@@ -55,6 +55,8 @@ alias 'del'='sudo pacman -R'
 alias 'grep'='grep --color'
 alias 'svelte'='npx degit sveltejs/template'
 alias 'sapper'='npx degit "sveltejs/sapper-template#rollup"'
+alias 'sveltekit'='npm init svelte@next'
+alias 'android-studio'='/opt/android-studio/bin/studio.sh'
 
 alias 'robotdb'='/opt/robo_mongodb/bin/robo3t'
 
@@ -72,3 +74,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PAGER="most"
 export PATH=$PATH:~/.local/bin
+export DENO_INSTALL="/home/hakouguelfen/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH=$PATH:/opt/flutter/bin
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/hakouguelfen/Desktop/guelfen/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/hakouguelfen/Desktop/guelfen/node_modules/tabtab/.completions/electron-forge.zsh
