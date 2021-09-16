@@ -7,7 +7,7 @@ window:
   #   x: 10
   #   y: 0
 
-  padding: 
+  padding:
     x: 7
     y: 7
 
@@ -20,116 +20,239 @@ window:
   # startup_mode: Maximized
 
 # Window title
-title: Alacritty
+title:
+  Alacritty
   #dynamic_title: true
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
 gtk_theme_variant: "dark"
 
 #scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  #history: 10000
+# Maximum number of lines in the scrollback buffer.
+# Specifying '0' will disable scrolling.
+#history: 10000
 
-  # Scrolling distance multiplier.
-  #multiplier: 3
+# Scrolling distance multiplier.
+#multiplier: 3
 
 # Font configuration
 font:
   normal:
-    family: MesloLGS NF 
+    family: MesloLGS NF
     style: Regular
-  
+
   size: 14
 
   offset:
-   x: 0
-   y: 0
+    x: 0
+    y: 0
 
   glyph_offset:
-   x: 0
-   y: 0
+    x: 0
+    y: 0
 
 draw_bold_text_with_bright_colors: true
 
-colors:
-  primary:
-   background: '#1d1f21'
-   foreground: '#c5c8c6'    #2a9d8f
+schemes:
+  myColors: &myColors
+    primary:
+      background: "#1d1f21"
+      foreground: "#c5c8c6" #2a9d8f
 
-  cursor:
-   text: CellBackground
-   cursor: CellForeground
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
 
-  search:
-    matches:
-     foreground: '#000000'
-     background: '#ffffff'
-    focused_match:
-     foreground: '#ffffff'
-     background: '#000000'
+    search:
+      matches:
+        foreground: "#000000"
+        background: "#ffffff"
+      focused_match:
+        foreground: "#ffffff"
+        background: "#000000"
 
-    bar:
-     background: '#c5c8c6'
-     foreground: '#1d1f21'
+      bar:
+        background: "#c5c8c6"
+        foreground: "#1d1f21"
 
-  # Keyboard regex hints
-  hints:
-    start:
-     foreground: '#1d1f21'
-     background: '#e9ff5e'
+    # Keyboard regex hints
+    hints:
+      start:
+        foreground: "#1d1f21"
+        background: "#e9ff5e"
 
-    end:
-     foreground: '#e9ff5e'
-     background: '#1d1f21'
+      end:
+        foreground: "#e9ff5e"
+        background: "#1d1f21"
 
-  #line_indicator:
-  #  foreground: None
-  #  background: None
+    #line_indicator:
+    #  foreground: None
+    #  background: None
 
-  selection:
-   text: CellBackground
-   background: CellForeground
+    selection:
+      text: CellBackground
+      background: CellForeground
 
-  normal:
-   black:   '#1d1f21'
-   red:     '#cc6666'
-   green:   '#42c954'
-   yellow:  '#f0c674'
-   blue:    '#81a2be'
-   magenta: '#b294bb'
-   cyan:    '#8abeb7'
-   white:   '#c5c8c6'
+    normal:
+      black: "#1d1f21"
+      red: "#cc6666"
+      green: "#42c954"
+      yellow: "#f0c674"
+      blue: "#81a2be"
+      magenta: "#b294bb"
+      cyan: "#8abeb7"
+      white: "#c5c8c6"
 
-  bright:
-   black:   '#666666'
-   red:     '#d54e53'
-   green:   '#b9ca4a'
-   yellow:  '#e7c547'
-   blue:    '#7aa6da'
-   magenta: '#c397d8'
-   cyan:    '#70c0b1'
-   white:   '#eaeaea'
+    bright:
+      black: "#666666"
+      red: "#d54e53"
+      green: "#b9ca4a"
+      yellow: "#e7c547"
+      blue: "#7aa6da"
+      magenta: "#c397d8"
+      cyan: "#70c0b1"
+      white: "#eaeaea"
 
-  dim:
-   black:   '#131415'
-   red:     '#864343'
-   green:   '#777c44'
-   yellow:  '#9e824c'
-   blue:    '#556a7d'
-   magenta: '#75617b'
-   cyan:    '#5b7d78'
-   white:   '#828482'
+    dim:
+      black: "#131415"
+      red: "#864343"
+      green: "#777c44"
+      yellow: "#9e824c"
+      blue: "#556a7d"
+      magenta: "#75617b"
+      cyan: "#5b7d78"
+      white: "#828482"
 
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '#ff00ff' }`
-  #
-  #indexed_colors: []
+  ayu-dark: &ayu-dark
+    primary:
+      background: "#10100E"
+      foreground: "#C6C6C4"
+
+    # Normal colors
+    normal:
+      black: "#10100E"
+      red: "#C40233"
+      green: "#009F6B"
+      yellow: "#FFD700"
+      blue: "#0087BD"
+      magenta: "#9A4EAE"
+      cyan: "#20B2AA"
+      white: "#C6C6C4"
+
+    # Bright colors
+    bright:
+      black: "#696969"
+      red: "#FF2400"
+      green: "#03C03C"
+      yellow: "#FDFF00"
+      blue: "#007FFF"
+      magenta: "#FF1493"
+      cyan: "#00CCCC"
+      white: "#FFFAFA"
+
+    primary:
+    background: '#263238'
+    foreground: '#eeffff'
+
+  material: &material
+    normal:
+      black:   '#000000'  # Arbitrary
+      red:     '#e53935'
+      green:   '#91b859'
+      yellow:  '#ffb62c'
+      blue:    '#6182b8'
+      magenta: '#ff5370'  # Dark pink of the original material theme
+      cyan:    '#39adb5'
+      white:   '#a0a0a0'  # Arbitrary
+
+    # Bright colors
+    bright:
+      black:   '#4e4e4e'  # Arbitrary
+      red:     '#ff5370'
+      green:   '#c3e88d'
+      yellow:  '#ffcb6b'
+      blue:    '#82aaff'
+      magenta: '#f07178'  # Pink of the original material theme
+      cyan:    '#89ddff'
+      white:   '#ffffff'
+  
+  after-glow: &after-glow
+    primary:
+      background: '#2c2c2c'
+      foreground: '#d6d6d6'
+
+      dim_foreground:    '#dbdbdb'
+      bright_foreground: '#d9d9d9'
+      dim_background:    '#202020' # not sure
+      bright_background: '#3a3a3a' # not sure
+
+    # Cursor colors
+    cursor:
+      text:   '#2c2c2c'
+      cursor: '#d9d9d9'
+
+    # Normal colors
+    normal:
+      black:   '#1c1c1c'
+      red:     '#bc5653'
+      green:   '#909d63'
+      yellow:  '#ebc17a'
+      blue:    '#7eaac7'
+      magenta: '#aa6292'
+      cyan:    '#86d3ce'
+      white:   '#cacaca'
+
+    # Bright colors
+    bright:
+      black:   '#636363'
+      red:     '#bc5653'
+      green:   '#909d63'
+      yellow:  '#ebc17a'
+      blue:    '#7eaac7'
+      magenta: '#aa6292'
+      cyan:    '#86d3ce'
+      white:   '#f7f7f7'
+
+    # Dim colors
+    dim:
+      black:   '#232323'
+      red:     '#74423f'
+      green:   '#5e6547'
+      yellow:  '#8b7653'
+      blue:    '#556b79'
+      magenta: '#6e4962'
+      cyan:    '#5c8482'
+      white:   '#828282'
+
+  blood-moon: &blood-moon
+    primary:
+      background: '#10100E'
+      foreground: '#C6C6C4'
+
+    # Normal colors
+    normal:
+      black:   '#10100E'
+      red:     '#C40233'
+      green:   '#009F6B'
+      yellow:  '#FFD700'
+      blue:    '#0087BD'
+      magenta: '#9A4EAE'
+      cyan:    '#20B2AA'
+      white:   '#C6C6C4'
+
+    # Bright colors
+    bright:
+      black:   '#696969'
+      red:     '#FF2400'
+      green:   '#03C03C'
+      yellow:  '#FDFF00'
+      blue:    '#007FFF'
+      magenta: '#FF1493'
+      cyan:    '#00CCCC'
+      white:   '#FFFAFA'
+
+# myColors, ayu-dark,material, after-glow,blood-moon
+colors: *myColors
 
 bell:
   #   - Ease
@@ -144,29 +267,29 @@ bell:
   #   - Linear
   animation: Linear
   duration: 100
-  color: '#1e211f'
+  color: "#1e211f"
 
   # Example:
   #   command:
   #     program: notify-send
   #     args: ["Hello, World!"]
-  
+
   #command: None
 
 background_opacity: 0.9
 
 #selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+# This string contains all characters that are used as separators for
+# "semantic words" in Alacritty.
+#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
-  # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+# When set to `true`, selected text will be copied to the primary clipboard.
+#save_to_clipboard: false
 
 cursor:
   style:
-    shape: Underline     # (▇ Block1, _ Underline, | Beam)
-    blinking: Never      # - Never: - Off:- On:- Always: 
+    shape: Underline # (▇ Block1, _ Underline, | Beam)
+    blinking: Never # - Never: - Off:- On:- Always:
 
   blink_interval: 750
   unfocused_hollow: false
