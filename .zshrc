@@ -1,4 +1,3 @@
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -44,40 +43,41 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# aliases
-alias 'l'='ls'
-alias 'll'='ls -la'
-alias 'cls'='clear'
-alias 'torrent'='transmission-gtk'
-alias 'wifi'='sudo iwlist wlp3s0 scan | grep -i ssid'
-alias 'get'='sudo pacman -S'
-alias 'del'='sudo pacman -R'
-alias 'grep'='grep --color'
-alias 'svelte'='npx degit sveltejs/template'
-alias 'sapper'='npx degit "sveltejs/sapper-template#rollup"'
-alias 'sveltekit'='npm init svelte@next'
-alias 'android-studio'='/opt/android-studio/bin/studio.sh'
 
-alias 'robotdb'='/opt/robo_mongodb/bin/robo3t'
-
+# [aliases]
+alias l='ls --color=auto'
+alias ll='ls --color=auto -lah'
+alias cls='clear'
+alias ..='cd ..'
+alias rm='rm -rf'
+alias v='nvim'
+alias calc='python /usr/bin/calc.py'
+alias torrent='transmission-gtk'
+alias wifi='sudo iwlist wlp3s0 scan | grep -i ssid'
+alias get='sudo pacman -S'
+alias del='sudo pacman -R'
+alias update='sudo pacman -Syu'
+alias grep='grep --color'
+alias svelte='npx degit sveltejs/template'
+alias sveltekit='npm init svelte@next'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
+# [source]
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# zsh auto suggest plugin
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 export PAGER="most"
 export PATH=$PATH:~/.local/bin
 export DENO_INSTALL="/home/hakouguelfen/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=$PATH:/opt/flutter/bin
+export PATH=$PATH:/opt/pycharm/bin
+export EDITOR="vim"
+export HISTCONTROL=ignoreboth
 
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/hakouguelfen/Desktop/guelfen/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/hakouguelfen/Desktop/guelfen/node_modules/tabtab/.completions/electron-forge.zsh
+setopt autocd
