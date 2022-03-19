@@ -38,10 +38,11 @@ gtk_theme_variant: "dark"
 # Font configuration
 font:
   normal:
-    family: MesloLGS NF
+    # family: MesloLGS NF
+    family: Fira Code
     style: Regular
 
-  size: 16
+  size: 15
 
   offset:
     x: 0
@@ -338,7 +339,7 @@ bell:
 
   #command: None
 
-background_opacity: 0.9
+window.opacity: 0.9
 
 #selection:
 # This string contains all characters that are used as separators for
