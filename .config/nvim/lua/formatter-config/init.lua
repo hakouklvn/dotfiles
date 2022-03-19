@@ -4,6 +4,7 @@ require"lsp-format".setup {
   html = { tab_width = 2 },
   css = { tab_width = 2 },
   python = { tab_width = 4 },
+  java = { tab_width = 2 },
 }
 
 local prettier = {
@@ -20,6 +21,12 @@ require"lspconfig".efm.setup {
             yaml = { prettier },
             html = { prettier },
             css = { prettier },
+            python = { prettier },
+            java = { prettier },
         },
     },
 }
+
+
+vim.cmd [[cabbrev w execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> w]]
+
