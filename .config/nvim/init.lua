@@ -1,16 +1,8 @@
 require('plugins')
 require('keybindings')
-require('options')
-require('lualine-config')
-require('bufferline-config')
-require('tree-config')
-require('autopairs-config')
-require('whichkey-config')
-require('treesitter-config')
-require('telescope-config')
-require('colorizer-config')
-require('indent-config')
-require('lsp')
-require('formatter-config')
-vim.cmd('colorscheme onedark')
+
+require(   'options')
+
+
+
 
