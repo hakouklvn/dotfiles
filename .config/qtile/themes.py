@@ -7,13 +7,9 @@ COLORS = {
     "green": "#7bed8a",
 }
 
-icons_path = "icons/"
+icons_path = "~/.config/qtile/icons/"
 icons = {
     "logo": f"{icons_path}logo.svg",
-    "clock": f"{icons_path}clock.png",
-    "date": f"{icons_path}date.png",
-    "volume": f"{icons_path}volume.png",
-    "wifi": f"{icons_path}wifi.png",
 }
 
 Windows_details = {
