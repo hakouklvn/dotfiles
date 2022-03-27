@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo pacman -S base-devel xorg picom nitrogen zsh qtile alacritty lsd bat neovim vivid nautilus
-sudo pacman -S mypy python-pip python-iwlib rofi
+sudo pacman -S mypy python-pip python-iwlib rofi vlc
 sudo pacman -S zsh-syntax-highlighting zsh-autosuggestions alsa-utils
 
 git clone https://aur.archlinux.org/yay-git.git yay
@@ -9,7 +9,7 @@ cd yay
 makepkg -si
 rm -rf yay
 
-yay -S ly nerd-fonts-mononoki ttf-meslo-nerd-font-powerlevel10k brave
+yay -S ly nerd-fonts-mononoki ttf-meslo-nerd-font-powerlevel11k nvim-packer-git
 sudo systemctl enable ly
 
 yay -S --noconfirm zsh-theme-powerlevel10k-git
@@ -19,10 +19,7 @@ chsh -s /bin/zsh root
 chsh -s /bin/zsh hakou
 
 # change keyboard layout to azerty
-echo "
-# Written by systemd-localed(8), read by systemd-localed and Xorg. It's
-# probably wise not to edit this file manually. Use localectl(1) to
-# instruct systemd-localed to update it.
+sudo echo "
 Section "InputClass"
        Identifier "system-keyboard"
        MatchIsKeyboard "on"
@@ -32,9 +29,9 @@ Section "InputClass"
 EndSection" > /etc/X11/xorg.conf.d/00-keyboard.conf 
 
 ## enable touchpad 
-echo "
-Section "InputClass"
-   Identifier "libinput touchpad catchall"
-   Driver "libinput"
-   Option "Tapping" "on"
-EndSection" > /etc/X11/xorg.conf.d/40-libinput.conf
+# sudo echo "
+# Section "InputClass"
+#    Identifier "libinput touchpad catchall"
+#    Driver "libinput"
+#    Option "Tapping" "on"
+# EndSection" > /etc/X11/xorg.conf.d/40-libinput.conf
