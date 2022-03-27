@@ -2,17 +2,15 @@
 
 sudo pacman -S base-devel xorg picom nitrogen zsh qtile alacritty lsd bat neovim vivid nautilus
 sudo pacman -S mypy python-pip python-iwlib rofi
-sudo pacman -S zsh-syntax-highlighting zsh-autosuggestions
+sudo pacman -S zsh-syntax-highlighting zsh-autosuggestions alsa-utils
 
 git clone https://aur.archlinux.org/yay-git.git yay
 cd yay
 makepkg -si
+rm -rf yay
 
-yay -S lye
+yay -S ly nerd-fonts-mononoki ttf-meslo-nerd-font-powerlevel10k brave
 sudo systemctl enable ly
-
-yay -S nerd-fonts-mononoki 
-yay -S ttf-meslo-nerd-font-powerlevel10k
 
 yay -S --noconfirm zsh-theme-powerlevel10k-git
 echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
