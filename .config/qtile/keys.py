@@ -12,7 +12,7 @@ keyboard_shortcut = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    # Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key(
@@ -60,8 +60,11 @@ keyboard_shortcut = [
     ),
     # start brave
     Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
+    # start emacs
+    Key([mod], "e", lazy.spawn("emacsclient -c"), desc="Launch emacs"),
     # start spotify
     Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
+    # start flameshot
     Key([mod], "f", lazy.spawn("flameshot launcher"), desc="Launch flameshot"),
     # volumes
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 -q set Master 2dB+")),

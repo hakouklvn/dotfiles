@@ -11,8 +11,8 @@ vim.g.nvim_tree_icons = {
     ignored= "◌"
   },
   folder= {
-    arrow_open= "",
-    arrow_closed= "",
+    arrow_open= "",
+    arrow_closed= "",
     default= "",
     open= "",
     empty= "",
@@ -29,7 +29,6 @@ require'nvim-tree'.setup {
   open_on_setup        = true,
   ignore_buffer_on_setup = false,
   ignore_ft_on_setup   = {},
-  auto_close           = true,
   auto_reload_on_write = true,
   open_on_tab          = false,
   hijack_cursor        = false,

@@ -53,6 +53,7 @@ alias cls='clear'
 alias cat='bat'
 alias rm='rm -rf'
 alias v='nvim'
+alias vim='nvim'
 alias calc='python /usr/bin/calc.py'
 alias torrent='transmission-gtk'
 alias wifi='sudo iwlist wlp3s0 scan | grep -i ssid'
@@ -89,9 +90,9 @@ up () {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 
 export PAGER="most"
@@ -126,3 +127,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
+alias luamake=/home/hakouguelfen/.config/nvim/lua-language-server/3rd/luamake/luamake

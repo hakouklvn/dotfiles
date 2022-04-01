@@ -9,10 +9,11 @@ return require('packer').startup(function()
   }
   use {'kyazdani42/nvim-web-devicons'}
   use {
-    'nvim-lualine/lualine.nvim',
-    event = "BufWinEnter",
-    config = "require('lualine-config')"
+    'tamton-aquib/staline.nvim',
+    event = "BufRead",
+    config = "require('staline-config')"
   }
+  use {'glepnir/dashboard-nvim', event = "BufRead"}
   use {
     'akinsho/bufferline.nvim',
     event = "BufWinEnter",

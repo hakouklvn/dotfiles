@@ -1,41 +1,14 @@
-# window decoration
 window:
-  # dimensions:
-  #   columns: 10
-  #   lines: 0
-  # position:
-  #   x: 10
-  #   y: 0
-
   padding:
     x: 7
     y: 7
 
   dynamic_padding: true
-  #     - full: Borders and title bar
-  #     - none: Neither borders nor title bar
   decorations: none
 
-  #   - Windowed - Maximized - Fullscreen
-  # startup_mode: Maximized
-
-# Window title
-title:
-  Alacritty
-  #dynamic_title: true
-  # Override the variant of the GTK theme. Commonly supported values are `dark`
-  # and `light`. Set this to `None` to use the default theme variant.
+title: Alacritty
 gtk_theme_variant: "dark"
 
-#scrolling:
-# Maximum number of lines in the scrollback buffer.
-# Specifying '0' will disable scrolling.
-#history: 10000
-
-# Scrolling distance multiplier.
-#multiplier: 3
-
-# Font configuration
 font:
   normal:
     # family: MesloLGS NF
@@ -55,202 +28,19 @@ font:
 draw_bold_text_with_bright_colors: true
 
 schemes:
-  myColors: &myColors
+  doom-one: &doom-one
     primary:
-      background: "#1d1f21"
-      foreground: "#c5c8c6" #2a9d8f
-
-    cursor:
-      text: CellBackground
-      cursor: CellForeground
-
-    search:
-      matches:
-        foreground: "#000000"
-        background: "#ffffff"
-      focused_match:
-        foreground: "#ffffff"
-        background: "#000000"
-
-      bar:
-        background: "#c5c8c6"
-        foreground: "#1d1f21"
-
-    # Keyboard regex hints
-    hints:
-      start:
-        foreground: "#1d1f21"
-        background: "#e9ff5e"
-
-      end:
-        foreground: "#e9ff5e"
-        background: "#1d1f21"
-
-    #line_indicator:
-    #  foreground: None
-    #  background: None
-
-    selection:
-      text: CellBackground
-      background: CellForeground
-
+      background: "0x282c34"
+      foreground: "0xbbc2cf"
     normal:
-      black: "#1d1f21"
-      red: "#cc6666"
-      green: "#42c954"
-      yellow: "#f0c674"
-      blue: "#81a2be"
-      magenta: "#b294bb"
-      cyan: "#8abeb7"
-      white: "#c5c8c6"
-
-    bright:
-      black: "#666666"
-      red: "#d54e53"
-      green: "#b9ca4a"
-      yellow: "#e7c547"
-      blue: "#7aa6da"
-      magenta: "#c397d8"
-      cyan: "#70c0b1"
-      white: "#eaeaea"
-
-    dim:
-      black: "#131415"
-      red: "#864343"
-      green: "#777c44"
-      yellow: "#9e824c"
-      blue: "#556a7d"
-      magenta: "#75617b"
-      cyan: "#5b7d78"
-      white: "#828482"
-
-  ayu-dark: &ayu-dark
-    primary:
-      background: "#10100E"
-      foreground: "#C6C6C4"
-
-    # Normal colors
-    normal:
-      black: "#10100E"
-      red: "#C40233"
-      green: "#009F6B"
-      yellow: "#FFD700"
-      blue: "#0087BD"
-      magenta: "#9A4EAE"
-      cyan: "#20B2AA"
-      white: "#C6C6C4"
-
-    # Bright colors
-    bright:
-      black: "#696969"
-      red: "#FF2400"
-      green: "#03C03C"
-      yellow: "#FDFF00"
-      blue: "#007FFF"
-      magenta: "#FF1493"
-      cyan: "#00CCCC"
-      white: "#FFFAFA"
-
-    primary:
-    background: '#263238'
-    foreground: '#eeffff'
-
-  material: &material
-    normal:
-      black:   '#000000'  # Arbitrary
-      red:     '#e53935'
-      green:   '#91b859'
-      yellow:  '#ffb62c'
-      blue:    '#6182b8'
-      magenta: '#ff5370'  # Dark pink of the original material theme
-      cyan:    '#39adb5'
-      white:   '#a0a0a0'  # Arbitrary
-
-    # Bright colors
-    bright:
-      black:   '#4e4e4e'  # Arbitrary
-      red:     '#ff5370'
-      green:   '#c3e88d'
-      yellow:  '#ffcb6b'
-      blue:    '#82aaff'
-      magenta: '#f07178'  # Pink of the original material theme
-      cyan:    '#89ddff'
-      white:   '#ffffff'
-  
-  after-glow: &after-glow
-    primary:
-      background: '#2c2c2c'
-      foreground: '#d6d6d6'
-
-      dim_foreground:    '#dbdbdb'
-      bright_foreground: '#d9d9d9'
-      dim_background:    '#202020' # not sure
-      bright_background: '#3a3a3a' # not sure
-
-    # Cursor colors
-    cursor:
-      text:   '#2c2c2c'
-      cursor: '#d9d9d9'
-
-    # Normal colors
-    normal:
-      black:   '#1c1c1c'
-      red:     '#bc5653'
-      green:   '#909d63'
-      yellow:  '#ebc17a'
-      blue:    '#7eaac7'
-      magenta: '#aa6292'
-      cyan:    '#86d3ce'
-      white:   '#cacaca'
-
-    # Bright colors
-    bright:
-      black:   '#636363'
-      red:     '#bc5653'
-      green:   '#909d63'
-      yellow:  '#ebc17a'
-      blue:    '#7eaac7'
-      magenta: '#aa6292'
-      cyan:    '#86d3ce'
-      white:   '#f7f7f7'
-
-    # Dim colors
-    dim:
-      black:   '#232323'
-      red:     '#74423f'
-      green:   '#5e6547'
-      yellow:  '#8b7653'
-      blue:    '#556b79'
-      magenta: '#6e4962'
-      cyan:    '#5c8482'
-      white:   '#828282'
-
-  blood-moon: &blood-moon
-    primary:
-      background: '#10100E'
-      foreground: '#C6C6C4'
-
-    # Normal colors
-    normal:
-      black:   '#10100E'
-      red:     '#C40233'
-      green:   '#009F6B'
-      yellow:  '#FFD700'
-      blue:    '#0087BD'
-      magenta: '#9A4EAE'
-      cyan:    '#20B2AA'
-      white:   '#C6C6C4'
-
-    # Bright colors
-    bright:
-      black:   '#696969'
-      red:     '#FF2400'
-      green:   '#03C03C'
-      yellow:  '#FDFF00'
-      blue:    '#007FFF'
-      magenta: '#FF1493'
-      cyan:    '#00CCCC'
-      white:   '#FFFAFA'
+      black: "0x282c34"
+      red: "0xff6c6b"
+      green: "0x98be65"
+      yellow: "0xecbe7b"
+      blue: "0x51afef"
+      magenta: "0xc678dd"
+      cyan: "0x46d9ff"
+      white: "0xbbc2cf"
 
   oneDark: &oneDark
     cursor:
@@ -285,37 +75,37 @@ schemes:
 
     # Default colors
     primary:
-      background: '0x282c34'
-      foreground: '0xabb2bf'
+      background: "0x282c34"
+      foreground: "0xabb2bf"
 
     # Normal colors
     normal:
-      black:   '0x20232A'
-      red:     '0xe86671'
-      green:   '0x98c379'
-      yellow:  '0xe0af68'
-      blue:    '0x61afef'
-      magenta: '0xc678dd'
-      cyan:    '0x56b6c2'
-      white:   '0x798294'
+      black: "0x20232A"
+      red: "0xe86671"
+      green: "0x98c379"
+      yellow: "0xe0af68"
+      blue: "0x61afef"
+      magenta: "0xc678dd"
+      cyan: "0x56b6c2"
+      white: "0x798294"
 
     # Bright colors
     bright:
-      black:   '0x4a4a54'
-      red:     '0xe86671'
-      green:   '0x98c379'
-      yellow:  '0xe0af68'
-      blue:    '0x61afef'
-      magenta: '0xc678dd'
-      cyan:    '0x56b6c2'
-      white:   '0xabb2bf'
+      black: "0x4a4a54"
+      red: "0xe86671"
+      green: "0x98c379"
+      yellow: "0xe0af68"
+      blue: "0x61afef"
+      magenta: "0xc678dd"
+      cyan: "0x56b6c2"
+      white: "0xabb2bf"
 
     indexed_colors:
-      - { index: 16, color: '0xd19a66' }
-      - { index: 17, color: '0xf65866' }
-    
-# myColors, ayu-dark, material, after-glow, blood-moon, oneDark
-colors: *oneDark
+      - { index: 16, color: "0xd19a66" }
+      - { index: 17, color: "0xf65866" }
+
+# oneDark, doom-one
+colors: *doom-one
 
 bell:
   #   - Ease
@@ -336,7 +126,6 @@ bell:
   #   command:
   #     program: notify-send
   #     args: ["Hello, World!"]
-
   #command: None
 
 window.opacity: 0.9

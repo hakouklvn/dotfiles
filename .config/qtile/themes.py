@@ -1,3 +1,4 @@
+'''constans colors'''
 COLORS = {
     "dark_blue": "#282c34",
     "light_blue": "#3d5a80",
@@ -17,5 +18,5 @@ Windows_details = {
     "eacute": "  ",
     "quotedbl": "  ",
     "apostrophe": "  ",
-    "parenleft": "  ",
+    "parenleft": "  ",
 }
