@@ -28,6 +28,9 @@ Windows_details = {
     "parenleft": "  ",
 }
 
+mod = "mod4"
+terminal = guess_terminal()
+
 keyboard_shortcut = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -173,8 +176,6 @@ widgets = [
     ),
 ]
 
-mod = "mod4"
-terminal = guess_terminal()
 keys = keyboard_shortcut
 
 # switch between windows
