@@ -1,3 +1,16 @@
+#+title: Doom configs
+#+author: hakou guelfen
+#+startup: showeverything:
+#+property: header-args :tangle config.el
+
+* TABLE OF CONTENTS :toc:
+- [[#defaults][DEFAULTS]]
+- [[#centaur-tabs][CENTAUR TABS]]
+- [[#prettier-js][PRETTIER-JS]]
+- [[#other-plugins][OTHER PLUGINS]]
+
+* DEFAULTS
+#+begin_src emacs-lisp
 (setq user-full-name "hakou guelfen"
       user-mail-address "hakoudev@gmail.com")
 (setq doom-font (font-spec :family "Fira Code" :size 18 :weight 'semi-light)
@@ -8,7 +21,10 @@
 (setq org-directory "~/org/")
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq confirm-kill-emacs nil)
+#+end_src
 
+* CENTAUR TABS
+#+begin_src emacs-lisp
 (use-package centaur-tabs
   :demand
   :config
@@ -42,12 +58,19 @@
      (and (string-prefix-p "magit" name)
 	  (not (file-name-extension name)))
      )))
+#+end_src
 
+* PRETTIER-JS
+#+begin_src emacs-lisp
 (use-package prettier-js
   :ensure t
   :after (rjsx-mode)
   :hook (rjsx-mode)
   )
+#+end_src
 
+* OTHER PLUGINS
+#+begin_src emacs-lisp
 (use-package projectile)
 (use-package lsp-ui)
+#+end_src
