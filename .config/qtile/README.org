@@ -1,3 +1,17 @@
+#+title: qtile configs
+#+author: hakou guelfen
+#+description: My qtile configs
+#+property: header-args :tangle config.py
+
+* TABLE OF CONTENTS :toc:
+- [[#imports][IMPORTS]]
+- [[#constants][CONSTANTS]]
+- [[#keys][KEYS]]
+- [[#widgets][WIDGETS]]
+- [[#main][MAIN]]
+
+* IMPORTS
+#+begin_src python
 from libqtile.config import Group, Match
 from typing import List  # noqa: F401
 
@@ -5,7 +19,10 @@ from libqtile import bar, layout,widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+#+end_src
 
+* CONSTANTS
+#+begin_src python
 COLORS = {
     "dark_blue": "#282c34",
     "light_blue": "#3d5a80",
@@ -27,7 +44,10 @@ Windows_details = {
     "apostrophe": "  ",
     "parenleft": "  ",
 }
+#+end_src
 
+* KEYS
+#+begin_src python
 keyboard_shortcut = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -96,7 +116,10 @@ keyboard_shortcut = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("light -U 5")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
 ]
+#+end_src
 
+* WIDGETS
+#+begin_src python
 widgets = [
     widget.Sep(padding=5, foreground=COLORS['dark_blue']),
     widget.Image(filename=icons["logo"]),
@@ -172,7 +195,10 @@ widgets = [
         fontsize=16,
     ),
 ]
+#+end_src
 
+* MAIN
+#+begin_src python
 mod = "mod4"
 terminal = guess_terminal()
 keys = keyboard_shortcut
@@ -253,3 +279,4 @@ auto_minimize = True
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+#+end_src
