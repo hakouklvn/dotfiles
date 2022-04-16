@@ -3,12 +3,7 @@
 #+startup: showeverything:
 #+property: header-args :tangle config.el
 
-* TABLE OF CONTENTS :toc:
-- [[#defaults][DEFAULTS]]
-- [[#centaur-tabs][CENTAUR TABS]]
-- [[#prettier-js][PRETTIER-JS]]
-- [[#other-plugins][OTHER PLUGINS]]
-
+* TABLE OF CONTENTS :toc: - [[#defaults][DEFAULTS]] - [[#centaur-tabs][CENTAUR TABS]] - [[#prettier-js][PRETTIER-JS]] - [[#yasnippet][YASNIPPET]] - [[#prettify-symbol][PRETTIFY-SYMBOL]] - [[#other-plugins][OTHER PLUGINS]]
 * DEFAULTS
 #+begin_src emacs-lisp
 (setq user-full-name "hakou guelfen"
@@ -63,10 +58,32 @@
 * PRETTIER-JS
 #+begin_src emacs-lisp
 (use-package prettier-js
-  :ensure t
   :after (rjsx-mode)
   :hook (rjsx-mode)
   )
+#+end_src
+
+* YASNIPPET
+#+begin_src emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :config
+  (setq yas-snippet-dirs '("snippets"))
+  (yas-global-mode 1))
+#+end_src
+
+* FLUTTER
+#+begin_src emacs-lisp
+(use-package dart-mode
+  :ensure t
+  :custom
+  (dart-format-on-save t)
+
+(use-package flutter
+  :ensure t
+  :after dart-mode
+  :hook (dart-mode . (lambda ()
+    (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t))))
 #+end_src
 
 * OTHER PLUGINS

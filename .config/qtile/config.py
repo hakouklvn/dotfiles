@@ -1,7 +1,7 @@
 from libqtile.config import Group, Match
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout,widget
+from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -101,75 +101,55 @@ keyboard_shortcut = [
 ]
 
 widgets = [
-    widget.Sep(padding=5, foreground=COLORS['dark_blue']),
+    widget.Sep(padding=5, foreground=COLORS["dark_blue"]),
     widget.Image(filename=icons["logo"]),
-
     widget.GroupBox(
-        this_current_screen_border=COLORS['dark_blue'],
-        block_highlight_text_color=COLORS['orange'],
-        highlight_method='block',
+        this_current_screen_border=COLORS["dark_blue"],
+        block_highlight_text_color=COLORS["orange"],
+        highlight_method="block",
         fontsize=16,
-        active=COLORS['light_blue'],
+        active=COLORS["light_blue"],
     ),
-
     widget.Spacer(),
-
     widget.Clock(
-        format='%a %d %b ,',
+        format="%a %d %b ,",
         padding=7,
     ),
     widget.Clock(
-        format='%I:%M',
+        format="%I:%M",
     ),
-
     widget.Spacer(),
-
-    widget.Sep(
-        linewidth=7, foreground=COLORS['dark_blue']),
-
+    widget.Sep(linewidth=7, foreground=COLORS["dark_blue"]),
     # WIFI widget
     widget.TextBox(
-        '',
-        fontsize='16',
-        foreground=COLORS['blue'],
+        "",
+        fontsize="16",
+        foreground=COLORS["blue"],
     ),
     widget.Wlan(
         interface="wlp3s0",
-        format='{essid}',
-        foreground=COLORS['blue'],
-
+        format="{essid}",
+        foreground=COLORS["blue"],
     ),
-
-
-    widget.Sep(
-        linewidth=20, foreground=COLORS['dark_blue']),
-
+    widget.Sep(linewidth=20, foreground=COLORS["dark_blue"]),
     widget.TextBox(
-        '',
-        fontsize='18',
-        foreground=COLORS['green'],
-
+        "",
+        fontsize="18",
+        foreground=COLORS["green"],
     ),
     #  up  mute  down
-    widget.Volume(
-        step=5,
-        foreground=COLORS['green'],
-        font='MesloLGS NF'
-    ),
-
+    widget.Volume(step=5, foreground=COLORS["green"], font="MesloLGS NF"),
     # widget.Backlight(
     #     background=COLORS['red'],
     #     brightness_name='light',
     #     brightness_file='/bin/light',
     #     change_command='light',
     # ),
-
-    widget.Sep(linewidth=5, foreground=COLORS['dark_blue']),
-
+    widget.Sep(linewidth=5, foreground=COLORS["dark_blue"]),
     widget.QuickExit(
-        foreground=COLORS['red'],
-        default_text='',
-        countdown_format='',
+        foreground=COLORS["red"],
+        default_text="",
+        countdown_format="",
         countdown_start=1,
         padding=15,
         fontsize=16,
@@ -181,20 +161,19 @@ keys = keyboard_shortcut
 # switch between windows
 for command, icon in Windows_details.items():
     keys.append(Key([mod], command, lazy.group[icon].toscreen()))
-    keys.append(Key([mod, 'shift'], command, lazy.window.togroup(icon)))
+    keys.append(Key([mod, "shift"], command, lazy.window.togroup(icon)))
 
 groups = [Group(icon) for icon in Windows_details.values()]
 
-layouts = [layout.Columns(
-    margin=4,
-    border_focus="#3c4541",
-    border_normal='#3c4541',
-    border_width=1
-)]
+layouts = [
+    layout.Columns(
+        margin=4, border_focus="#3c4541", border_normal="#3c4541", border_width=1
+    )
+]
 
 
 widget_defaults = dict(
-    font='sans',
+    font="sans",
     fontsize=12,
     padding=3,
 )
@@ -207,18 +186,23 @@ screens = [
             widgets,
             size=30,
             margin=5,
-            background=COLORS['dark_blue'],
+            background=COLORS["dark_blue"],
         ),
     ),
 ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
@@ -226,16 +210,18 @@ dgroups_app_rules = []  # type: List
 follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-])
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True

@@ -3,3 +3,4 @@
 (package! projectile)
 (package! lsp-ui)
 (package! prettier-js)
+(package! yasnippet)
