@@ -163,6 +163,12 @@ widgets = [
 
     ),
 
+    widget.LaunchBar(
+        default_icon="~/.config/qtile/icons/logo.svg",
+        mouse_callbacks={"Button2", lambda: qtile.cmd_spawn("spotify")},
+        background=COLORS["orange"],
+        padding=10,
+    ),
 
     widget.Sep(
         linewidth=20, foreground=COLORS['dark_blue']),
@@ -199,6 +205,8 @@ widgets = [
     ),
 ]
 #+end_src
+
+#+RESULTS:
 
 * MAIN
 #+begin_src python
