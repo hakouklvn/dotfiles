@@ -4,3 +4,4 @@
 (package! lsp-ui)
 (package! prettier-js)
 (package! yasnippet)
+(package! centaur-tabs)
