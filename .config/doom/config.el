@@ -8,19 +8,29 @@
 (setq org-directory "~/org/")
 (setq doom-themes-treemacs-theme "doom-colors")
 (setq confirm-kill-emacs nil)
+(beacon-mode 1)
 
  (use-package centaur-tabs
    :load-path "~/.emacs.d/other/centaur-tabs"
    :config
    (setq centaur-tabs-style "bar"
-	  centaur-tabs-height 32
-	  centaur-tabs-set-icons t
-	  centaur-tabs-set-modified-marker t
-    centaur-tabs-modified-marker ""
-	  centaur-tabs-show-navigation-buttons t
-    centaur-tabs-gray-out-icons 'buffer
-	  centaur-tabs-set-bar 'under
-	  x-underline-at-descent-line t)
+         centaur-tabs-set-icons t
+         centaur-tabs-height 35
+         centaur-tabs-gray-out-icons 'buffer
+         centaur-tabs-set-modified-marker t
+         centaur-tabs-modified-marker ""
+         centaur-tabs-cycle-scope 'tabs
+         x-underline-at-descent-line t
+         centaur-tabs-set-bar 'under)
+   ;; (setq centaur-tabs-style "bar"
+   ;;        centaur-tabs-height 32
+   ;;        centaur-tabs-set-icons t
+   ;;        centaur-tabs-set-modified-marker t
+   ;;  centaur-tabs-modified-marker ""
+   ;;        centaur-tabs-show-navigation-buttons t
+   ;;  centaur-tabs-gray-out-icons 'buffer
+   ;;        centaur-tabs-set-bar 'under
+   ;;        x-underline-at-descent-line t)
    (centaur-tabs-headline-match)
    ;; (centaur-tabs-enable-buffer-reordering)
    ;; (setq centaur-tabs-adjust-buffer-order t)
