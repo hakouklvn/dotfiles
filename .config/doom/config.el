@@ -22,15 +22,6 @@
          centaur-tabs-cycle-scope 'tabs
          x-underline-at-descent-line t
          centaur-tabs-set-bar 'under)
-   ;; (setq centaur-tabs-style "bar"
-   ;;        centaur-tabs-height 32
-   ;;        centaur-tabs-set-icons t
-   ;;        centaur-tabs-set-modified-marker t
-   ;;  centaur-tabs-modified-marker ""
-   ;;        centaur-tabs-show-navigation-buttons t
-   ;;  centaur-tabs-gray-out-icons 'buffer
-   ;;        centaur-tabs-set-bar 'under
-   ;;        x-underline-at-descent-line t)
    (centaur-tabs-headline-match)
    ;; (centaur-tabs-enable-buffer-reordering)
    ;; (setq centaur-tabs-adjust-buffer-order t)
@@ -92,39 +83,6 @@
    (:map evil-normal-state-map
 	  ("g t" . centaur-tabs-forward)
 	  ("g T" . centaur-tabs-backward)))
-;; (use-package centaur-tabs
-;;   :demand
-;;   :config
-
-;;    (setq centaur-tabs-style "bar"
-;;          centaur-tabs-set-icons t
-;;          centaur-tabs-height 35
-;;          centaur-tabs-gray-out-icons 'buffer
-;;          centaur-tabs-set-modified-marker t
-;;          centaur-tabs-modified-marker ""
-;;          centaur-tabs-cycle-scope 'tabs
-;;          x-underline-at-descent-line t
-;;          centaur-tabs-set-bar 'under)
-
-;;    (centaur-tabs-headline-match)
-;;    (centaur-tabs-mode t)
-
-;;   :hook
-;;   (dired-mode . centaur-tabs-local-mode))
-
-
-;; (defun centaur-tabs-hide-tab (x)
-;;   "Do no to show buffer X in tabs."
-;;   (let ((name (format "%s" x)))
-;;     (or
-;;      ;; Current window is not dedicated window.
-;;      (window-dedicated-p (selected-window))
-;;      (string-prefix-p "*doom" name)
-
-;;      ;; Is not magit buffer.
-;;      (and (string-prefix-p "magit" name)
-;; 	  (not (file-name-extension name)))
-;;      )))
 
 (use-package prettier-js
   :after (rjsx-mode)
@@ -147,6 +105,11 @@
   :after dart-mode
   :hook (dart-mode . (lambda ()
     (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t))))
+
+(after! org
+  (setq org-directory "~/Documents/Org")
+  (setq org-agenda-files '("~/Documents/Org/hanuut_roadmap.org"))
+  (setq org-log-done 'time))
 
 (use-package projectile)
 (use-package lsp-ui)

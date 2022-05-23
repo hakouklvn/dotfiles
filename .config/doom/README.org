@@ -95,39 +95,6 @@
    (:map evil-normal-state-map
 	  ("g t" . centaur-tabs-forward)
 	  ("g T" . centaur-tabs-backward)))
-;; (use-package centaur-tabs
-;;   :demand
-;;   :config
-
-;;    (setq centaur-tabs-style "bar"
-;;          centaur-tabs-set-icons t
-;;          centaur-tabs-height 35
-;;          centaur-tabs-gray-out-icons 'buffer
-;;          centaur-tabs-set-modified-marker t
-;;          centaur-tabs-modified-marker ""
-;;          centaur-tabs-cycle-scope 'tabs
-;;          x-underline-at-descent-line t
-;;          centaur-tabs-set-bar 'under)
-
-;;    (centaur-tabs-headline-match)
-;;    (centaur-tabs-mode t)
-
-;;   :hook
-;;   (dired-mode . centaur-tabs-local-mode))
-
-
-;; (defun centaur-tabs-hide-tab (x)
-;;   "Do no to show buffer X in tabs."
-;;   (let ((name (format "%s" x)))
-;;     (or
-;;      ;; Current window is not dedicated window.
-;;      (window-dedicated-p (selected-window))
-;;      (string-prefix-p "*doom" name)
-
-;;      ;; Is not magit buffer.
-;;      (and (string-prefix-p "magit" name)
-;; 	  (not (file-name-extension name)))
-;;      )))
 #+end_src
 
 * PRETTIER-JS
@@ -161,8 +128,20 @@
     (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t))))
 #+end_src
 
+* ORG MODE
+#+begin_src emacs-lisp
+(after! org
+  (setq org-directory "~/Documents/Org")
+  (setq org-agenda-files '("~/Documents/Org/hanuut_roadmap.org"))
+  (setq org-log-done 'time))
+#+end_src
+
+#+RESULTS:
+: time
+
 * OTHER PLUGINS
 #+begin_src emacs-lisp
 (use-package projectile)
 (use-package lsp-ui)
 #+end_src
+

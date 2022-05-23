@@ -1,6 +1,4 @@
-from libqtile.config import Group, Match
 from typing import List  # noqa: F401
-
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -24,8 +22,8 @@ Windows_details = {
     "ampersand": "  ",
     "eacute": "  ",
     "quotedbl": "  ",
-    "apostrophe": "  ",
-    "parenleft": "  ",
+    "apostrophe": "  ",
+    "parenleft": "  ",
 }
 
 mod = "mod4"
@@ -86,7 +84,7 @@ keyboard_shortcut = [
     # start brave
     Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
     # start emacs
-    Key([mod], "e", lazy.spawn("emacsclient -c"), desc="Launch emacs"),
+    Key([mod], "e", lazy.spawn("emacsclient -nc"), desc="Launch emacs"),
     # start spotify
     Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
     # start flameshot
