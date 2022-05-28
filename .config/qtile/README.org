@@ -1,7 +1,7 @@
 #+title: qtile configs
 #+author: hakou guelfen
 #+description: My qtile configs
-#+propert: header-args :tangle config.py
+#+property: header-args :tangle config.py
 
 * TABLE OF CONTENTS :toc:
 - [[#imports][IMPORTS]]
@@ -34,13 +34,14 @@ icons_path = "~/.config/qtile/icons/"
 icons = {
     "logo": f"{icons_path}logo.svg",
 }
-
+# egrave, underscore, ccedilla
 Windows_details = {
     "ampersand": "  ",
     "eacute": "  ",
     "quotedbl": "  ",
     "apostrophe": "  ",
     "parenleft": "  ",
+    "minus": "  ",
 }
 
 mod = "mod4"
@@ -196,8 +197,6 @@ widgets = [
     ),
 ]
 #+end_src
-
-#+RESULTS:
 
 * MAIN
 #+begin_src python
