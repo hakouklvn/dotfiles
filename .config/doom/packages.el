@@ -5,3 +5,4 @@
 (package! prettier-js)
 (package! yasnippet)
 (package! centaur-tabs)
+(package! org-auto-tangle)

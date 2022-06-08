@@ -1,10 +1,21 @@
-#+title: Doom configs
-#+author: hakou guelfen
-#+startup: showeverything:
-#+property: header-args :tangle config.el
+#+TITLE: Doom configs
+#+AUTHOR: hakou guelfen
+#+STARTUP: showeverything
+#+PROPERTY: header-args :tangle config.el
+#+auto_tangle: t
+
 # install all-the-icons-install-fonts
 
-* TABLE OF CONTENTS :toc: - [[#defaults][DEFAULTS]] - [[#centaur-tabs][CENTAUR TABS]] - [[#prettier-js][PRETTIER-JS]] - [[#yasnippet][YASNIPPET]] - [[#prettify-symbol][PRETTIFY-SYMBOL]] - [[#other-plugins][OTHER PLUGINS]]
+* TABLE OF CONTENTS :toc:
+- [[#defaults][DEFAULTS]]
+- [[#centaur-tabs][CENTAUR TABS]]
+- [[#prettier-js][PRETTIER-JS]]
+- [[#yasnippet][YASNIPPET]]
+- [[#flutter][FLUTTER]]
+- [[#org-mode][ORG MODE]]
+- [[#other-plugins][OTHER PLUGINS]]
+- [[#org-auto-tangle][ORG AUTO TANGLE]]
+
 * DEFAULTS
 #+begin_src emacs-lisp
 (setq user-full-name "hakou guelfen"
@@ -136,12 +147,17 @@
   (setq org-log-done 'time))
 #+end_src
 
-#+RESULTS:
-: time
-
 * OTHER PLUGINS
 #+begin_src emacs-lisp
 (use-package projectile)
 (use-package lsp-ui)
 #+end_src
 
+* ORG AUTO TANGLE
+#+begin_src emacs-lisp
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t))
+#+end_src

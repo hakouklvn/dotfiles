@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("/home/hakouguelfen/Documents/Org/hanuut_roadmap.org"))
+ '(package-selected-packages '(company-tabnine))
  '(warning-suppress-log-types
    '((dart-mode-local-vars-hook)
      (dart-mode-local-vars-hook)
