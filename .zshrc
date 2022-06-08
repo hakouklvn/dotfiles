@@ -65,7 +65,9 @@ alias update='sudo pacman -Syu'
 alias grep='grep --color'
 alias svelte='npx degit sveltejs/template'
 alias sveltekit='npm init svelte@next'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias rustbook='rustup doc --book'
+alias archwiki='sh archwiki.sh'
 
 # navigation
 up () {
@@ -107,6 +109,7 @@ export PATH=$PATH:~/.config/nvim/lua-language-server/bin
 export EDITOR="vim"
 export HISTCONTROL=ignoreboth
 export LS_COLORS="$(vivid generate one-dark)"
+export REMOVE_BG_API_KEY="uwPN2zdRLtRuAa6emRxqaXz6"
 
 setopt autocd
 

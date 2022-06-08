@@ -1,5 +1,5 @@
 from typing import List  # noqa: F401
-from libqtile import bar, layout,widget
+from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -13,9 +13,9 @@ COLORS = {
     "green": "#7bed8a",
 }
 
-icons_path = "~/.config/qtile/icons/"
+ICONS_PATH = "~/.config/qtile/icons/"
 icons = {
-    "logo": f"{icons_path}logo.svg",
+    "logo": f"{ICONS_PATH}logo.svg",
 }
 # egrave, underscore, ccedilla
 Windows_details = {
