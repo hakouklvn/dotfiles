@@ -1,6 +1,6 @@
 return require('packer').startup(function()
   use {'wbthomason/packer.nvim'}
-  use {'joshdick/onedark.vim', config="vim.cmd('colorscheme onedark')"}
+  use {'romgrk/doom-one.vim', config="vim.cmd('colorscheme doom-one')"}
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -13,12 +13,12 @@ return require('packer').startup(function()
     event = "BufRead",
     config = "require('staline-config')"
   }
-  use {'glepnir/dashboard-nvim', event = "BufRead"}
   use {
     'akinsho/bufferline.nvim',
     event = "BufWinEnter",
     config = "require('bufferline-config')"
   }
+  use {"akinsho/toggleterm.nvim", config = "require('toggle-term-config')"}
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = "NvimTreeToggle",
@@ -75,6 +75,5 @@ return require('packer').startup(function()
   use {"jose-elias-alvarez/null-ls.nvim", config = "require('null-ls-config')"}
   use {'williamboman/nvim-lsp-installer'}
   use {"terrortylor/nvim-comment", config = "require('comment-config')"}
-  use {"akinsho/toggleterm.nvim", config = "require('toggle-term-config')"}
 
 end)

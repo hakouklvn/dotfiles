@@ -1,8 +1,10 @@
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
 vim.cmd('filetype plugin on')
+vim.cmd('set background=dark')
 
 -- vim.cmd('autocmd BufWritePost * FormatWrite')
+vim.g.doom_one_terminal_colors = true
 
 vim.g.completopt    		= "menu, menuone, noselect, noinsert"
 vim.o.shortmess    			= vim.o.shortmess .. 'c'

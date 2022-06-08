@@ -1,17 +1,21 @@
-require("null-ls").setup({
+local null_ls = require("null-ls");
+local formatting = null_ls.builtins.formatting;
+local diagnostics = null_ls.builtins.diagnostics;
+
+null_ls.setup({
   sources = {
-    require("null-ls").builtins.formatting.stylua,
-    require("null-ls").builtins.formatting.black,
-    require("null-ls").builtins.formatting.prettier,
-    require("null-ls").builtins.formatting.gofmt,
-    require("null-ls").builtins.formatting.shfmt,
-    require("null-ls").builtins.formatting.astyle,
-    require("null-ls").builtins.formatting.lua_formtat,
-    require("null-ls").builtins.formatting.clang_format,
-    require("null-ls").builtins.formatting.cmake_format,
-    require("null-ls").builtins.formatting.isort,
-    require("null-ls").builtins.diagnostics.eslint,
-    require("null-ls").builtins.completion.spell,
+    formatting.stylua,
+    formatting.black,
+    formatting.prettier,
+    formatting.gofmt,
+    formatting.shfmt,
+    formatting.astyle,
+    -- formatting.lua_formtat,
+    formatting.clang_format,
+    formatting.cmake_format,
+    formatting.isort,
+    diagnostics.eslint,
+    null_ls.builtins.completion.spell,
   },
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

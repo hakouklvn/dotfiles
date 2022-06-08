@@ -8,7 +8,7 @@ map('n', '<C-j>', '<C-w>j', {noremap = true, silent = false})
 map('n', '<C-k>', '<C-w>k', {noremap = true, silent = false})
 
 -- press ii to exit from insert mode
-map('i', 'ii', '<Esc>', {noremap = true, silent = false})
+map('i', 'jk', '<Esc>', {noremap = true, silent = false})
 
 -- open/close sidebar
 map('n', '<C-b>', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
