@@ -109,7 +109,6 @@ export PATH=$PATH:~/.config/nvim/lua-language-server/bin
 export EDITOR="vim"
 export HISTCONTROL=ignoreboth
 export LS_COLORS="$(vivid generate one-dark)"
-export REMOVE_BG_API_KEY="Rp5W5vuYZPR8vUKHRM5QJefj"
 
 setopt autocd
 
