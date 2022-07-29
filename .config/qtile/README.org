@@ -105,18 +105,20 @@ keyboard_shortcut = [
         lazy.spawn("/home/hakouguelfen/.config/rofi/bin/launcher_colorful"),
         desc="launch rofi",
     ),
-    # start brave
-    Key([mod], "b", lazy.spawn("brave"), desc="Launch brave"),
-    # start emacs
+
+    # start apps
+    Key([mod], "b", lazy.spawn("brave-browser-nightly"), desc="Launch brave"),
     Key([mod], "e", lazy.spawn("emacsclient -nc"), desc="Launch emacs"),
-    # start spotify
     Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
-    # start flameshot
     Key([mod], "f", lazy.spawn("flameshot launcher"), desc="Launch flameshot"),
+    Key([mod], "m", lazy.spawn("mailspring launcher"), desc="Launch mailSpring"),
+    Key([mod], "l", lazy.spawn("slock"), desc="Launch slock"),
+
     # volumes
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 -q set Master 2dB+")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 -q set Master 2dB-")),
     Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
+
     # brightness
     Key([], "XF86MonBrightnessDown", lazy.spawn("light -U 5")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
