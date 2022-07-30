@@ -1,79 +1,42 @@
 return require('packer').startup(function()
-  use {'wbthomason/packer.nvim'}
-  use {'romgrk/doom-one.vim', config="vim.cmd('colorscheme doom-one')"}
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
+  -- A better status line
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    event = "BufWinEnter",
-    config = "require('treesitter-config')"
-  }
-  use {'kyazdani42/nvim-web-devicons'}
-  use {
-    'tamton-aquib/staline.nvim',
-    event = "BufRead",
-    config = "require('staline-config')"
-  }
-  use {
-    'akinsho/bufferline.nvim',
-    event = "BufWinEnter",
-    config = "require('bufferline-config')"
-  }
-  use {"akinsho/toggleterm.nvim", config = "require('toggle-term-config')"}
-  use {
-    'kyazdani42/nvim-tree.lua',
-    cmd = "NvimTreeToggle",
-    config = "require('tree-config')"
-  }
-  use {
-    'windwp/nvim-ts-autotag',
-    event = "InsertEnter",
-    after = "nvim-treesitter"
-  }
-  use {'p00f/nvim-ts-rainbow', after = "nvim-treesitter"}
-  use {
-    'windwp/nvim-autopairs',
-    config = "require('autopairs-config')",
-    after = "nvim-cmp"
-  }
-  use {
-    "folke/which-key.nvim",
-    event = "BufWinEnter",
-    config = "require('whichkey-config')"
-  }
-  use {'norcalli/nvim-colorizer.lua', event = "BufRead", config = "require('colorizer-config')"}
-  
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
-    cmd = "Telescope",
-    config = "require('telescope-config')"
-  }
-  
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-    config = "require('indent-config')"
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    -- config = "require('lualine')"
   }
 
-  use {'neovim/nvim-lspconfig', config = "require('lsp')"}
-  use {'hrsh7th/cmp-nvim-lsp'}
-  use {'hrsh7th/cmp-buffer'}
-  use {'hrsh7th/cmp-path'}
-  use {'hrsh7th/cmp-cmdline'}
-  use {'hrsh7th/nvim-cmp'}
-  use {'mattn/emmet-vim'}
-  use {'hrsh7th/cmp-vsnip'}
-  use {'hrsh7th/vim-vsnip'}
-  use {'onsails/lspkind-nvim'}
-  use {"jose-elias-alvarez/null-ls.nvim", config = "require('null-ls-config')"}
-  use {'williamboman/nvim-lsp-installer'}
-  use {"terrortylor/nvim-comment", config = "require('comment-config')"}
+  -- File management --
+  use 'vifm/vifm.vim'
+  use 'scrooloose/nerdtree'
+  use 'tiagofumo/vim-nerdtree-syntax-highlight'
+  use 'ryanoasis/vim-devicons'
 
+  -- Productivity --
+  use 'vimwiki/vimwiki'
+  use 'jreybert/vimagit'
+
+  -- Tim Pope Plugins --
+  use 'tpope/vim-surround'
+
+  -- Syntax Highlighting and Colors --
+  use 'PotatoesMaster/i3-vim-syntax'
+  use 'kovetskiy/sxhkd-vim'
+  use 'vim-python/python-syntax'
+  use 'ap/vim-css-color'
+
+  -- Junegunn Choi Plugins --
+  use 'junegunn/goyo.vim'
+  use 'junegunn/limelight.vim'
+  use 'junegunn/vim-emoji'
+
+  -- Colorschemes
+  use 'RRethy/nvim-base16'
+  use 'kyazdani42/nvim-palenight.lua'
+
+  -- Other stuff
+  use 'frazrepo/vim-rainbow'
 end)
