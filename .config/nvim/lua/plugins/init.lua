@@ -38,4 +38,55 @@ return require('packer').startup(function()
 
   -- Other stuff
   use 'frazrepo/vim-rainbow'
+  use {
+   'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+
+  use {
+    "williamboman/nvim-lsp-installer",
+    "neovim/nvim-lspconfig",
+  }
+
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+  }
+
+  use 'windwp/nvim-autopairs'
+  use({
+      'NTBBloodbath/doom-one.nvim',
+      config = function()
+          require('doom-one').setup({
+              cursor_coloring = false,
+              terminal_colors = false,
+              italic_comments = false,
+              enable_treesitter = true,
+              transparent_background = false,
+              pumblend = {
+                  enable = true,
+                  transparency_amount = 20,
+              },
+              plugins_integrations = {
+                  neorg = true,
+                  barbar = true,
+                  bufferline = false,
+                  gitgutter = false,
+                  gitsigns = true,
+                  telescope = false,
+                  neogit = true,
+                  nvim_tree = true,
+                  dashboard = true,
+                  startify = true,
+                  whichkey = true,
+                  indent_blankline = true,
+                  vim_illuminate = true,
+                  lspsaga = false,
+              },
+          })
+      end,
+  })
 end)

@@ -106,3 +106,8 @@ map('i', '<C-A>', '<ESC>I')
 
 -- exit insert mode
 map('i', 'jk', '<ESC>')
+
+map('n', 'K', ':lua vim.lsp.buf.hover()<cr>')
+map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>')
+map('n', '<C-B>', ':NERDTreeToggle<cr>')
+
