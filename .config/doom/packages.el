@@ -1,0 +1,8 @@
+(package! beacon)
+(package! flycheck-aspell)
+(package! projectile)
+(package! lsp-ui)
+(package! prettier-js)
+(package! centaur-tabs)
+(package! org-auto-tangle)
+(package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))

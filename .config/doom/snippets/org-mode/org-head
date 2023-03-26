@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: ORG head
+# key: <head
+# --
+
+#+TITLE: ${1:title}
+#+AUTHOR: hakou guelfen
+#+EMAIL: hakoudev@gmail.com
+#+DESCRIPTION: ${2: description}
+#+property: header-args :tangle ${3: output}
+#+auto_tangle: t
+
+$0

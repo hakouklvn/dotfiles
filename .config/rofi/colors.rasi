@@ -1,0 +1,7 @@
+* {
+    background:        rgb(40, 44, 52, 0.5);
+    background-alt:    #00000000;
+    background-bar:    #f2f2f215;
+    foreground:        rgb(242, 242, 242, 0.7);
+    accent:            #3DAEE966;
+}

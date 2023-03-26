@@ -1,0 +1,201 @@
+window:
+  padding:
+    x: 7
+    y: 7
+
+  dynamic_padding: true
+  decorations: none
+
+title: Alacritty
+gtk_theme_variant: "dark"
+
+font:
+  normal:
+    # family: MesloLGS NF
+    family: Fira Code
+    style: Regular
+
+  size: 15
+
+  offset:
+    x: 0
+    y: 0
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+schemes:
+  doom-one: &doom-one
+    primary:
+      background: "0x282c34"
+      foreground: "0xbbc2cf"
+    normal:
+      black: "0x282c34"
+      red: "0xff6c6b"
+      green: "0x98be65"
+      yellow: "0xecbe7b"
+      blue: "0x51afef"
+      magenta: "0xc678dd"
+      cyan: "0x46d9ff"
+      white: "0xbbc2cf"
+
+  oneDark: &one-dark
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    search:
+      matches:
+        foreground: "#000000"
+        background: "#ffffff"
+      focused_match:
+        foreground: "#ffffff"
+        background: "#000000"
+
+      bar:
+        background: "#c5c8c6"
+        foreground: "#1d1f21"
+    hints:
+      start:
+        foreground: "#1d1f21"
+        background: "#e9ff5e"
+
+      end:
+        foreground: "#e9ff5e"
+        background: "#1d1f21"
+    selection:
+      text: CellBackground
+      background: CellForeground
+    primary:
+      background: "0x282c34"
+      foreground: "0xabb2bf"
+    normal:
+      black: "0x20232A"
+      red: "0xe86671"
+      green: "0x98c379"
+      yellow: "0xe0af68"
+      blue: "0x61afef"
+      magenta: "0xc678dd"
+      cyan: "0x56b6c2"
+      white: "0x798294"
+    bright:
+      black: "0x4a4a54"
+      red: "0xe86671"
+      green: "0x98c379"
+      yellow: "0xe0af68"
+      blue: "0x61afef"
+      magenta: "0xc678dd"
+      cyan: "0x56b6c2"
+      white: "0xabb2bf"
+    indexed_colors:
+      - { index: 16, color: "0xd19a66" }
+      - { index: 17, color: "0xf65866" }
+
+  mocha: &mocha
+    primary:
+      background: "#1E1E2E" # base
+      foreground: "#CDD6F4" # text
+      dim_foreground: "#CDD6F4" # text
+      bright_foreground: "#CDD6F4" # text
+    cursor:
+      text: "#1E1E2E" # base
+      cursor: "#F5E0DC" # rosewater
+    vi_mode_cursor:
+      text: "#1E1E2E" # base
+      cursor: "#B4BEFE" # lavender
+    search:
+      matches:
+        foreground: "#1E1E2E" # base
+        background: "#A6ADC8" # subtext0
+      focused_match:
+        foreground: "#1E1E2E" # base
+        background: "#A6E3A1" # green
+      footer_bar:
+        foreground: "#1E1E2E" # base
+        background: "#A6ADC8" # subtext0
+    hints:
+      start:
+        foreground: "#1E1E2E" # base
+        background: "#F9E2AF" # yellow
+      end:
+        foreground: "#1E1E2E" # base
+        background: "#A6ADC8" # subtext0
+    selection:
+      text: "#1E1E2E" # base
+      background: "#F5E0DC" # rosewater
+    normal:
+      black: "#45475A" # surface1
+      red: "#F38BA8" # red
+      green: "#A6E3A1" # green
+      yellow: "#F9E2AF" # yellow
+      blue: "#89B4FA" # blue
+      magenta: "#F5C2E7" # pink
+      cyan: "#94E2D5" # teal
+      white: "#BAC2DE" # subtext1
+    bright:
+      black: "#585B70" # surface2
+      red: "#F38BA8" # red
+      green: "#A6E3A1" # green
+      yellow: "#F9E2AF" # yellow
+      blue: "#89B4FA" # blue
+      magenta: "#F5C2E7" # pink
+      cyan: "#94E2D5" # teal
+      white: "#A6ADC8" # subtext0
+    dim:
+      black: "#45475A" # surface1
+      red: "#F38BA8" # red
+      green: "#A6E3A1" # green
+      yellow: "#F9E2AF" # yellow
+      blue: "#89B4FA" # blue
+      magenta: "#F5C2E7" # pink
+      cyan: "#94E2D5" # teal
+      white: "#BAC2DE" # subtext1
+    indexed_colors:
+      - { index: 16, color: "#FAB387" }
+      - { index: 17, color: "#F5E0DC" }
+
+# oneDark, doom-one, mocha
+
+colors: *doom-one
+
+bell:
+  #   - Ease
+  #   - EaseOut
+  #   - EaseOutSine
+  #   - EaseOutQuad
+  #   - EaseOutCubic
+  #   - EaseOutQuart
+  #   - EaseOutQuint
+  #   - EaseOutExpo
+  #   - EaseOutCirc
+  #   - Linear
+  animation: Linear
+  duration: 100
+  color: "#1e211f"
+
+  # Example:
+  #   command:
+  #     program: notify-send
+  #     args: ["Hello, World!"]
+  #command: None
+
+window.opacity: 0.9
+
+#selection:
+# This string contains all characters that are used as separators for
+# "semantic words" in Alacritty.
+#semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+# When set to `true`, selected text will be copied to the primary clipboard.
+#save_to_clipboard: false
+
+cursor:
+  style:
+    shape: Underline # (▇ Block1, _ Underline, | Beam)
+    blinking: Never # - Never: - Off:- On:- Always:
+
+  blink_interval: 750
+  unfocused_hollow: false
+  thickness: 0.15
