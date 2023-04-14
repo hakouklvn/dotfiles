@@ -2,7 +2,23 @@
       user-mail-address "hakoudev@gmail.com")
 (setq doom-font (font-spec :family "Fira Code" :size 22 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "Fira Code" :size 20))
-(setq doom-theme 'doom-vibrant)
+
+(require 'yaml-mode)
+(require 'yaml)
+
+(defun load-yaml-file (filename)
+  (with-temp-buffer
+    (insert-file-contents filename)
+    (goto-char (point-min))
+    (yaml-mode)
+    (setq my-data (yaml-parse-string (buffer-string))))
+  my-data)
+
+(setq my-data (load-yaml-file "~/.config/theme/setting.yaml"))
+(setq emacs-setting (gethash 'emacs (gethash 'setting my-data)))
+(message "The Emacs setting is `%s`." (intern emacs-setting))
+
+(setq doom-theme (intern emacs-setting))
 
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")

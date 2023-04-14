@@ -1,27 +1,46 @@
 from typing import List  # noqa: F401
-
+import subprocess
 from libqtile import bar, layout, widget, qtile
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, DropDown, ScratchPad
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-COLORS = {
-    "dark_blue": "#282c34",
-    "light_blue": "#89DCEBff",
-    "orange": "#ee6c4d",
-    "light_orange": "#f4bb90",
+import yaml
+
+setting = "/home/hakouguelfen/.config/theme/setting.yaml"
+
+DARK = {
+    "background": "#282c34",
+    "foreground": "#bbc2cf",
+    "inactive":"#404040",
     "red": "#f43333",
     "blue": "#7b92ed",
-    "green": "#7bed8a",
-
-    "BG": "#1E1D2Fff",
-    "BGA": "#89DCEBff",
-    "FG": "#D9E0EEff",
-    "FGA": "#F28FADff",
+    "purple": "#F28FADff",
     "YELLOW": "#FAE3B0ff",
-    "OFF": "#575268ff",
-    "ON": "#ABE9B3ff",
+    "green": "#ABE9B3ff",
 }
+LIGHT = {
+    "background": "#fafafa",
+    "foreground": "#34393d",
+    "inactive": "#c8c8c8",
+    "red": "#f43333",
+    "blue": "#5666a5",
+    "purple": "#ea4a7b",
+    "YELLOW": "#f7d280",
+    "green": "#6ed97c",
+}
+
+COLORS = DARK
+
+try:
+    with open(setting) as setting_file:
+        data = yaml.safe_load(setting_file)
+    if data["setting"]["qtile"] == "LIGHT":
+        COLORS = LIGHT
+    else:
+        COLORS = DARK
+except Exception as e:
+    subprocess.run(["notify-send", "Qtile YAML Data", str(e)])
 
 ICONS_PATH = "~/.config/qtile/icons/"
 icons = {
@@ -38,7 +57,6 @@ Windows_details = {
 }
 
 mod = "mod4"
-isTimeLong = False
 terminal = guess_terminal()
 
 scriptsDir = '.local/bin/scripts/'
@@ -101,9 +119,9 @@ keyboard_shortcut = [
         Key([], "w", lazy.spawn(f"{scriptsDir}wifi.sh"), desc='connect to wifi'),
         Key([], "s", lazy.spawn(f"{scriptsDir}surf.sh"), desc='surf the web'),
         Key([], "g", lazy.spawn(f"{scriptsDir}github.sh"), desc='search github repos'),
+        Key([], "t", lazy.spawn(f"python {scriptsDir}theme.py"), desc='change system theme'),
     ]),
     #######################################################################
-
     # start apps
     Key(
         [mod],
@@ -112,45 +130,40 @@ keyboard_shortcut = [
         desc="launch rofi",
     ),
     Key([mod], "b", lazy.spawn("brave-browser-nightly"), desc="Launch brave"),
-    Key([mod], "e", lazy.spawn('emacsclient --create-frame --alternate-editor=""'), desc="Launch emacs"),
+    Key([mod], "e", lazy.spawn('emacsclient -c -a emacs'), desc="Launch emacs"),
     Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
     Key([mod], "f", lazy.spawn("flameshot launcher"), desc="Launch flameshot"),
     Key([mod], "m", lazy.spawn("mailspring launcher"), desc="Launch mailSpring"),
     # Key([mod], "l", lazy.spawn("sh /opt/disable_all_functions.sh"), desc="Launch slock"),
 
     # volumes
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 -q set Master 2dB+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 -q set Master 2dB-")),
-    Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("sh .config/dunst/scripts/vol.sh 2dB+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("sh .config/dunst/scripts/vol.sh 2dB-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse set Master toggle")),
 
     # brightness
     Key([], "XF86MonBrightnessDown", lazy.spawn("light -U 5")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
 ]
 
-def toggle():
-    qtile.cmd_spawn('pavucontrol')
-    isTimeLong = not isTimeLong
-
 widgets = [
-    widget.Sep(padding=5, foreground=COLORS['dark_blue']),
-
-    # widget.Image(filename=icons["logo"]),
+    widget.Sep(padding=5, foreground=COLORS['background']),
 
     widget.GroupBox(
-        this_current_screen_border=COLORS['dark_blue'],
-        block_highlight_text_color=COLORS['FGA'],
+        this_current_screen_border=COLORS['background'],
+        block_highlight_text_color=COLORS['purple'],
         highlight_method='block',
         fontsize=16,
-        active=COLORS['BGA'],
+        active=COLORS['blue'],
+        inactive=COLORS['inactive']
     ),
 
     widget.Spacer(),
-    widget.WindowName(),
+    widget.WindowName(foreground=COLORS['foreground']),
     widget.Spacer(),
 
     # Battery
-    widget.Sep(linewidth=7, foreground=COLORS['dark_blue']),
+    widget.Sep(linewidth=7, foreground=COLORS['background']),
     widget.Battery(
         format='{char} {percent:2.0%} ',
         discharge_char="",
@@ -161,11 +174,11 @@ widgets = [
         foreground=COLORS['blue'],
     ),
     # BLUETOOTH
-    widget.Sep(linewidth=7, foreground=COLORS['dark_blue']),
+    widget.Sep(linewidth=7, foreground=COLORS['background']),
     widget.TextBox(
         '',
         fontsize=20,
-        foreground=COLORS['ON'],
+        foreground=COLORS['green'],
     ),
     # widget.Bluetooth(
     #     hci0="dev_00_02_00_00_0F_60",
@@ -173,7 +186,7 @@ widgets = [
     # ),
 
     # WIFI
-    widget.Sep(linewidth=7, foreground=COLORS['dark_blue']),
+    widget.Sep(linewidth=7, foreground=COLORS['background']),
     widget.TextBox(
         '',
         fontsize=25,
@@ -182,40 +195,37 @@ widgets = [
     widget.Wlan(
         interface="wlp0s20f3",
         format='{essid}',
+        foreground=COLORS['foreground'],
     ),
 
     # VOLUME  up  mute  down
-    widget.Sep(linewidth=20, foreground=COLORS['dark_blue']),
+    widget.Sep(linewidth=20, foreground=COLORS['background']),
     widget.TextBox(
-        '',
+        '',
         fontsize=25,
-        foreground=COLORS['FGA'],
+        foreground=COLORS['purple'],
     ),
-    widget.Volume(
-        step=5,
+    widget.Volume(foreground=COLORS['foreground']),
+
+    # CLOCK(add sys tray)
+    widget.Sep(linewidth=20, foreground=COLORS['background']),
+    widget.Clock(
+        format="%I:%M",
+        foreground=COLORS['foreground']
     ),
 
-    # CLOCK
-    widget.Sep(linewidth=20, foreground=COLORS['dark_blue']),
-    widget.TextBox(
-        '',
-        fontsize=16,
-        foreground=COLORS['BGA'],
-    ),
-    widget.Clock(
-        format="%A, %d %B %Y" if isTimeLong else "%I:%M %p",
-        mouse_callbacks={'Button1': toggle},
-    ),
+    widget.Sep(linewidth=20, foreground=COLORS['background']),
+    widget.Systray(),
 
     # SHUTDOWN
-    widget.Sep(linewidth=20, foreground=COLORS['dark_blue']),
+    widget.Sep(linewidth=20, foreground=COLORS['background']),
     widget.QuickExit(
         default_text='',
         fontsize=25,
         countdown_start=0,
         foreground=COLORS['red'],
     ),
-    widget.Sep(linewidth=20, foreground=COLORS['dark_blue']),
+    widget.Sep(linewidth=20, foreground=COLORS['background']),
 ]
 
 keys = keyboard_shortcut
@@ -255,7 +265,7 @@ screens = [
             widgets,
             size=32,
             margin=5,
-            background=COLORS['dark_blue'],
+            background=COLORS['background'],
         ),
     ),
 ]

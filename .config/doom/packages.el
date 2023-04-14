@@ -6,3 +6,4 @@
 (package! centaur-tabs)
 (package! org-auto-tangle)
 (package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
+(package! yaml-mode)
