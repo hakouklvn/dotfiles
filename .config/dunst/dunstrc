@@ -37,8 +37,9 @@
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
     progress_bar_height = 10
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 0
     progress_bar_min_width = 150
+    progress_bar_corner_radius = 7
     progress_bar_max_width = 300
 
 
@@ -49,10 +50,10 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 20
+    transparency = 0
 
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 0
     padding = 16
     horizontal_padding = 16
     text_icon_padding = 0
@@ -60,7 +61,6 @@
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 0
-    frame_color = "#ffffff"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -245,28 +245,15 @@
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
-
-# "BG": "#1E1D2F",
-# "BGA": "#89DCEBff",
-# "FG": "#D9E0EEff",
-# "FGA": "#F28FADff",
-# "YELLOW": "#FAE3B0ff",
-# "OFF": "#575268ff",
-# "ON": "#ABE9B3ff",
-    # "dark_blue": "#282c34",
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
+    background = "#282a36bb"
     foreground = "#D9E0EE"
-    timeout = 7
-    # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    timeout = 10
 
 [urgency_normal]
-    background = "#282c34"
+    background = "#282a36bb"
     foreground = "#D9E0EE"
-    timeout = 7
+    timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
@@ -396,8 +383,10 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-[stack-volumes]
-    appname = "some_volume_notifiers"
-    set_stack_tag = "volume"
+# [stack-volumes]
+#     appname = "volume controller"
+#     set_stack_tag = "myvolume"
+#     script = scripts/vol.sh
+#     urgency = critical
 #
 # vim: ft=cfg

@@ -3,9 +3,14 @@
 ##  doom-one-01.conkyrc (Qtile)  ##
 ###################################
 ]]
+background_color = '#282c34';
+purple = '#c678dd';
+grey = '#bbc2cf';
+blue = '#51afef';
+green = '#98be65';
+
 
 conky.config = {
-
 	--Various settings
 	background = true, 							-- forked to background
 	cpu_avg_samples = 2,						-- The number of samples to average for CPU monitoring.
@@ -44,7 +49,7 @@ conky.config = {
 	own_window_argb_value = 210,			    -- real transparency - composite manager required 0-255
 	own_window_argb_visual = true,				-- use ARGB - composite manager required
 	own_window_class = 'Conky',					-- manually set the WM_CLASS name for use with xprop
-	own_window_colour = '#282c34',				-- set colour if own_window_transparent no
+	own_window_colour = background_color,				-- set colour if own_window_transparent no
 	own_window_transparent = false,				-- if own_window_argb_visual is true sets background opacity 0%
 	own_window_title = 'xmonad_conky',			-- set the name manually
 	own_window_type = 'override',				-- if own_window true options are: normal/override/dock/desktop/panel
@@ -67,11 +72,11 @@ conky.config = {
 	use_xft = true,								-- xft font - anti-aliased font
 	xftalpha = 1,								-- alpha of the xft font - between 0-1
 
-	--Colors (Doom One)
-	color0 = '#c678dd',
-	color1 = '#bbc2cf',
-	color2 = '#51afef',
-	color3 = '#98be65',
+	--Colors
+	color0 = purple,
+	color1 = grey,
+	color2 = blue,
+	color3 = green,
 };
 
 conky.text = [[
@@ -79,14 +84,14 @@ ${alignc}${color1}${font2}${time %I:%M %p}${font}
 ${alignc}${color1}${font}${time %A, %d %B %Y}
 ${voffset 18}${goto 12}${color3}CPU${goto 50}$cpu%
 ${color2}${goto 12}${cpubar 8,254}
-${voffset 5}${goto 12}$font${color1}${top name 1}$alignr$color${top cpu 1}%
-${goto 12}${color1}${top name 2}$alignr$color${top cpu 2}%
-${goto 12}${color1}${top name 3}$alignr$color${top cpu 3}%
+${voffset 5}${goto 12}$font${color1}${top name 1}$alignr$color1${top cpu 1}%
+${goto 12}${color1}${top name 2}$alignr$color1${top cpu 2}%
+${goto 12}${color1}${top name 3}$alignr$color1${top cpu 3}%
 ${voffset 14}${goto 12}${color3}RAM${goto 50}$mem/$memmax
 ${color2}${goto 12}${membar 8,254}${color}
-${goto 12}${voffset 5}${color1}${top_mem name 1}$alignr$color${top_mem mem_res 1}
-${goto 12}${color1}${top_mem name 2}$alignr$color${top_mem mem_res 2}
-${goto 12}${color1}${top_mem name 3}$alignr$color${top_mem mem_res 3}
+${goto 12}${voffset 5}${color1}${top_mem name 1}$alignr$color1${top_mem mem_res 1}
+${goto 12}${color1}${top_mem name 2}$alignr$color1${top_mem mem_res 2}
+${goto 12}${color1}${top_mem name 3}$alignr$color1${top_mem mem_res 3}
 ${voffset 18}${color3}${font4}QTILE KEYBINDINGS${font}${color}
 ${color1}${hr}${color}
 ${color1}[S]+[RET]${alignr}${color2}open terminal${color}
@@ -105,6 +110,7 @@ ${color1}[S]+c, s${alignr}${color2}surf web${color}
 ${color1}[S]+c, w${alignr}${color2}start wifi${color}
 ${color1}[S]+c, a${alignr}${color2}arch wiki${color}
 ${color1}[S]+c, g${alignr}${color2}github repos${color}
+${color1}[S]+c, t${alignr}${color2}change theme${color}
 ${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+r${alignr}${color2}restart qtile${color}
 ]];
