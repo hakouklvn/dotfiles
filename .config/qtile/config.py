@@ -111,7 +111,7 @@ keyboard_shortcut = [
     # Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     #######################################################################
-    # Dmenu scripts launched using the key chord SUPER+p followed by 'key'
+    # Dmenu scripts launched using the key chord SUPER+c followed by 'key'
     KeyChord([mod], "c", [
         Key([], "d", lazy.spawn(f"{scriptsDir}docs.sh"), desc='List all pdf'),
         Key([], "k", lazy.spawn(f"{scriptsDir}killproccess.sh"), desc='kill running proccess'),
@@ -120,6 +120,7 @@ keyboard_shortcut = [
         Key([], "s", lazy.spawn(f"{scriptsDir}surf.sh"), desc='surf the web'),
         Key([], "g", lazy.spawn(f"{scriptsDir}github.sh"), desc='search github repos'),
         Key([], "t", lazy.spawn(f"python {scriptsDir}theme.py"), desc='change system theme'),
+        Key([], "p", lazy.spawn(f"{scriptsDir}power.sh"), desc='power setting'),
     ]),
     #######################################################################
     # start apps
@@ -144,6 +145,11 @@ keyboard_shortcut = [
     # brightness
     Key([], "XF86MonBrightnessDown", lazy.spawn("light -U 5")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
+
+    # keyboard layout
+
+    Key([mod], "a", lazy.spawn("setxkbmap ara")),
+    Key([mod], "z", lazy.spawn("setxkbmap us")),
 ]
 
 widgets = [
@@ -207,7 +213,7 @@ widgets = [
     ),
     widget.Volume(foreground=COLORS['foreground']),
 
-    # CLOCK(add sys tray)
+    # CLOCK
     widget.Sep(linewidth=20, foreground=COLORS['background']),
     widget.Clock(
         format="%I:%M",

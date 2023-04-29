@@ -111,6 +111,7 @@ ${color1}[S]+c, w${alignr}${color2}start wifi${color}
 ${color1}[S]+c, a${alignr}${color2}arch wiki${color}
 ${color1}[S]+c, g${alignr}${color2}github repos${color}
 ${color1}[S]+c, t${alignr}${color2}change theme${color}
+${color1}[S]+c, p${alignr}${color2}power setting${color}
 ${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+r${alignr}${color2}restart qtile${color}
 ]];
