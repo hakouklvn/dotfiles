@@ -66,6 +66,7 @@ alias scanNet='sudo iwlist wlp3s0 scan | grep -i ssid'
 alias get='sudo pacman -S'
 alias del='sudo pacman -Rns'
 alias update='sudo pacman -Syu'
+alias updateParu='paru -Syu'
 
 alias grep='grep --color'
 
@@ -173,6 +174,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 eval "$(zoxide init zsh)"
+export _ZO_ECHO_STYLE="case-insensitive"
 
 export PATH=$PATH:/home/hakouguelfen/.spicetify
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet

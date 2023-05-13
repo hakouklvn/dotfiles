@@ -147,9 +147,8 @@ keyboard_shortcut = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
 
     # keyboard layout
-
     Key([mod], "a", lazy.spawn("setxkbmap ara")),
-    Key([mod], "z", lazy.spawn("setxkbmap us")),
+    Key(["shift", "control"], "space", lazy.spawn("setxkbmap fr")),
 ]
 
 widgets = [
@@ -160,7 +159,7 @@ widgets = [
         block_highlight_text_color=COLORS['purple'],
         highlight_method='block',
         fontsize=16,
-        active=COLORS['blue'],
+        active=COLORS['foreground'],
         inactive=COLORS['inactive']
     ),
 
@@ -177,14 +176,14 @@ widgets = [
         full_char="",
         low_percentage=0.2,
         fontsize=20,
-        foreground=COLORS['blue'],
+        foreground=COLORS['foreground'],
     ),
     # BLUETOOTH
     widget.Sep(linewidth=7, foreground=COLORS['background']),
     widget.TextBox(
         '',
         fontsize=20,
-        foreground=COLORS['green'],
+        foreground=COLORS['foreground'],
     ),
     # widget.Bluetooth(
     #     hci0="dev_00_02_00_00_0F_60",
@@ -196,7 +195,7 @@ widgets = [
     widget.TextBox(
         '',
         fontsize=25,
-        foreground=COLORS['YELLOW'],
+        foreground=COLORS['foreground'],
     ),
     widget.Wlan(
         interface="wlp0s20f3",
@@ -209,7 +208,7 @@ widgets = [
     widget.TextBox(
         '',
         fontsize=25,
-        foreground=COLORS['purple'],
+        foreground=COLORS['foreground'],
     ),
     widget.Volume(foreground=COLORS['foreground']),
 
@@ -229,7 +228,7 @@ widgets = [
         default_text='',
         fontsize=25,
         countdown_start=0,
-        foreground=COLORS['red'],
+        foreground=COLORS['foreground'],
     ),
     widget.Sep(linewidth=20, foreground=COLORS['background']),
 ]

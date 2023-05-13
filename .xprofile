@@ -2,6 +2,7 @@ nitrogen --restore &
 picom &
 lxsession &
 dunst &
-/usr/bin/emacs --daemon &
-/usr/bin/conky -c .config/conky/conky.conkyrc &
-/mailspring --background
+emacs --daemon &
+conky -c .config/conky/conky.conkyrc &
+discord --start-minimized &
+udiskie &
