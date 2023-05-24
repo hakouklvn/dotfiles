@@ -16,6 +16,7 @@
 - [[#org-auto-tangle][ORG AUTO TANGLE]]
 - [[#treemacs][TREEMACS]]
 - [[#latex][LATEX]]
+- [[#imenu][IMENU]]
 
 * DEFAULTS
 #+begin_src emacs-lisp
@@ -196,4 +197,11 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+#+end_src
+
+* IMENU
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("o" . "Toggle")
+       :desc "Toggle imenu shown in a sidebar" "i" #'lsp-ui-imenu))
 #+end_src

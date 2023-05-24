@@ -151,3 +151,7 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(map! :leader
+      (:prefix ("o" . "Toggle")
+       :desc "Toggle imenu shown in a sidebar" "i" #'lsp-ui-imenu))
