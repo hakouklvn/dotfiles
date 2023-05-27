@@ -221,16 +221,7 @@ widgets = [
 
     widget.Sep(linewidth=20, foreground=COLORS['background']),
     widget.Systray(),
-
-    # SHUTDOWN
-    widget.Sep(linewidth=20, foreground=COLORS['background']),
-    widget.QuickExit(
-        default_text='',
-        fontsize=25,
-        countdown_start=0,
-        foreground=COLORS['foreground'],
-    ),
-    widget.Sep(linewidth=20, foreground=COLORS['background']),
+    widget.Sep(linewidth=10, foreground=COLORS['background']),
 ]
 
 keys = keyboard_shortcut
