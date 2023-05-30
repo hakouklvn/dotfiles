@@ -118,6 +118,27 @@
   :hook (dart-mode . (lambda ()
     (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t))))
 
+(defun flutter-run-dev ()
+  (interactive)
+  (let ((flutter-command "flutter run --flavor dev -t lib/main/main_dev.dart"))
+    (flutter-run "--flavor dev -t lib/main/main_dev.dart")))
+
+(defun flutter-run-prod ()
+  (interactive)
+  (let ((flutter-command "flutter run --flavor prod -t lib/main/main_prod.dart"))
+    (flutter-run "--flavor prod -t lib/main/main_prod.dart")))
+
+
+(map! :leader
+      (:prefix ("m" . "prefix")
+        :desc "flutter-run_dev"
+        "f d" #'flutter-run-dev))
+
+(map! :leader
+      (:prefix ("m" . "prefix")
+        :desc "flutter-run_prod"
+        "f p" #'flutter-run-prod))
+
 (after! org
   (setq org-directory "~/Documents/Org")
   (setq org-agenda-files '("~/Documents/Org/hanuut_roadmap.org"))
