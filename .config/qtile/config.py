@@ -57,6 +57,7 @@ Windows_details = {
 }
 
 mod = "mod4"
+mod1 = "mod1"
 terminal = guess_terminal()
 
 scriptsDir = '.local/bin/scripts/'
@@ -147,8 +148,7 @@ keyboard_shortcut = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 5")),
 
     # keyboard layout
-    Key([mod], "a", lazy.spawn("setxkbmap ara")),
-    Key(["shift", "control"], "space", lazy.spawn("setxkbmap fr")),
+    Key([mod1, "shift"], "Return", lazy.spawn(f"{scriptsDir}keyboard.sh")),
 ]
 
 widgets = [
