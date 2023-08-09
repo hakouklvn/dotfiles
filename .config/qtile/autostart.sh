@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 nitrogen --restore &
 picom &
 lxsession &

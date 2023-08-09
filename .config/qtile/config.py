@@ -1,6 +1,10 @@
 from typing import List  # noqa: F401
+
 import subprocess
-from libqtile import bar, layout, widget, qtile
+import os
+from libqtile import hook
+
+from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, DropDown, ScratchPad
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -75,8 +79,7 @@ keyboard_shortcut = [
     ),
     Key(
         [mod, "shift"],
-
-   "l",
+        "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
@@ -254,7 +257,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-
 screens = [
     Screen(
         top=bar.Bar(
@@ -265,6 +267,11 @@ screens = [
         ),
     ),
 ]
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh');
+    subprocess.Popen([home])
 
 # Drag floating layouts.
 mouse = [
