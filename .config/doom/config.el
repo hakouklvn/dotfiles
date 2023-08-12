@@ -23,6 +23,8 @@
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
 (setq confirm-kill-emacs nil)
+
+(setq haskell-stylish-on-save t)
 (beacon-mode 1)
 
  (use-package centaur-tabs
@@ -176,3 +178,5 @@
 (map! :leader
       (:prefix ("o" . "Toggle")
        :desc "Toggle imenu shown in a sidebar" "i" #'lsp-ui-imenu))
+
+(add-to-list 'default-frame-alist '(alpha-background . 90))

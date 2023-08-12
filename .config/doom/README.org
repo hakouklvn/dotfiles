@@ -17,6 +17,7 @@
 - [[#treemacs][TREEMACS]]
 - [[#latex][LATEX]]
 - [[#imenu][IMENU]]
+- [[#transparency][TRANSPARENCY]]
 
 * DEFAULTS
 #+begin_src emacs-lisp
@@ -45,6 +46,8 @@
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
 (setq confirm-kill-emacs nil)
+
+(setq haskell-stylish-on-save t)
 (beacon-mode 1)
 #+end_src
 
@@ -225,4 +228,9 @@
 (map! :leader
       (:prefix ("o" . "Toggle")
        :desc "Toggle imenu shown in a sidebar" "i" #'lsp-ui-imenu))
+#+end_src
+
+* TRANSPARENCY
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist '(alpha-background . 90))
 #+end_src
