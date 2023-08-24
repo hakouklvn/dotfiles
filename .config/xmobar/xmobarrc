@@ -6,7 +6,7 @@ Config {
      position =     Static {xpos=0,ypos=0,width=1920,height=35},
 
    -- layout
-     template = "  %XMonadLog%  }{  %date% "
+     template = "  %XMonadLog%  }{  %default:Master% %battery% %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -18,7 +18,23 @@ Config {
 
    -- plugins
    , commands = [
-                Run Date "%a %Y-%m-%d" "%date%" 10,
+                Run Date "<fc=#FAE3B0ff>%a %b %d %Y</fc> <fc=#ee9a00>%H:%M</fc> " "date" 50,
+                Run Battery [
+                    "-t", "<fc=#7b92ed> <acstatus> <left>% </fc>",
+                    "--",
+                    --"-c", "charge_full",
+                    "-O", "🌩",
+                    "-o", "",
+                    "-h", "green",
+                    "-l", "#7b923d",
+                    "-L", "40",
+                    "-a", "notify-send -u critical 'Battery running out!!'",
+                    "-A", "9"
+                    ] 600,
+                Run Volume "default" "Master" [
+                    "-t", "<fc=#ABE9B3ff> <volumestatus>% <volumebar></fc>"
+                ] 10,
                 Run XMonadLog
             ]
    }
+
