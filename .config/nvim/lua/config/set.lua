@@ -53,10 +53,6 @@ opt.mouse = "a"
 opt.hlsearch = false
 opt.incsearch = true
 
--- Map <leader> to space
-g.mapleader = ' '
-g.maplocalleader = ' '
-
 
 local ok, _ = pcall(vim.cmd, 'colorscheme base16-onedark')
 

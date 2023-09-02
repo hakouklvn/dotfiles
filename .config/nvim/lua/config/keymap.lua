@@ -1,18 +1,19 @@
 vim.g.mapleader = " "
 
--- KEYBINDINGS
-local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = true })
-end
+-- Insert mode
+vim.keymap.set('i', 'jk', '<ESC>')
+vim.keymap.set('i', 'kj', '<ESC>')
+vim.keymap.set('i', '<C-E>', '<ESC>A')
+vim.keymap.set('i', '<C-A>', '<ESC>I')
 
--- Mimic shell movements
-map('i', '<C-E>', '<ESC>A')
-map('i', '<C-A>', '<ESC>I')
+-- Normal mode
+vim.keymap.set('n', '<leader>op', ':NvimTreeToggle<cr>')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
--- exit insert mode
-map('i', 'jk', '<ESC>')
-map('i', 'kj', '<ESC>')
+-- Visual mode
+vim.keymap.set("v", 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", 'J', ":m '>+1<CR>gv=gv")
 
-map('n', 'K', ':lua vim.lsp.buf.hover()<cr>')
-map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>')
-map('n', '<leader>op', ':NvimTreeToggle<cr>')
+-- greatest map ever
+vim.keymap.set("x", 'p', "\"_dP")
