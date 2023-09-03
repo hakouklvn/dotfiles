@@ -9,7 +9,7 @@ return require('packer').startup(function()
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use ('nvim-treesitter/nvim-treesitter',{run=':TSUpdate'})
-    use ('tpope/vim-fugitive')
+    use ('NeogitOrg/neogit')
 
     use {
         'nvim-tree/nvim-tree.lua',
