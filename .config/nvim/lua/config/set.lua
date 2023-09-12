@@ -4,11 +4,12 @@ local o   = vim.o
 local opt = vim.opt
 local A   = vim.api
 
+o.laststatus=3
+
 o.termguicolors = true
 o.timeoutlen = 500
 o.updatetime = 200
 o.scrolloff = 4
-
 -- Better editor UI
 o.number = true
 o.numberwidth = 2
@@ -23,8 +24,8 @@ o.cindent = true
 o.autoindent = true
 o.wrap = true
 o.textwidth = 300
-o.tabstop = 4
-o.shiftwidth = 4
+o.tabstop = 2
+o.shiftwidth = 2
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.list = true
 o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
@@ -52,7 +53,6 @@ o.splitbelow = true
 opt.mouse = "a"
 opt.hlsearch = false
 opt.incsearch = true
-
 
 local ok, _ = pcall(vim.cmd, 'colorscheme base16-onedark')
 

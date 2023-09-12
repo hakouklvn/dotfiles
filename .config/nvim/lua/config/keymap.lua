@@ -10,6 +10,7 @@ vim.keymap.set('i', '<C-A>', '<ESC>I')
 vim.keymap.set('n', '<leader>op', ':NvimTreeToggle<cr>')
 vim.keymap.set("n", "<leader>gg", ":Neogit<cr>")
 vim.keymap.set("n", "<leader>bk", ":bdelete<cr>")
+vim.keymap.set("n", "<leader>bs", ":w<cr>")
 vim.keymap.set("n", "gt", ":bNext<cr>")
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
