@@ -265,7 +265,7 @@ screens = [
 
 @hook.subscribe.startup_once
 def start_once():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh');
+    home = os.path.expanduser('~/.config/qtile/scripts/autostart.sh');
     subprocess.Popen([home])
 
 # Drag floating layouts.
