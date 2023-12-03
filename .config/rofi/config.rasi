@@ -1,0 +1,17 @@
+configuration{
+    modi: "drun";
+    show-icons: true;
+    icon-theme:"Papirus";
+    drun-display-format: "{icon} {name}";
+
+    terminal: "alacritty";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "";
+    sidebar-mode: true;
+    font: "JetBrainsMono Nerd Font 10";
+}
+
+@theme "doom"
+@import "colors.rasi"
