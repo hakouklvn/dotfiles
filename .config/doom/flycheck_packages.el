@@ -1,5 +1,0 @@
-(package! beacon)
-(package! flycheck-aspell)
-(package! prettier-js)
-(package! org-auto-tangle)
-(package! yaml-mode)

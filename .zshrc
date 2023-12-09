@@ -110,17 +110,10 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 export PAGER="most"
 export PATH=$PATH:~/.pub-cache/bin
-# export PATH=$PATH:~/.local/bin/dmenu
 export PATH=$PATH:~/.local/bin/scripts
 
 export PATH=$PATH:~/.config/emacs/bin
-export PATH=$PATH:~/.emacs.d/bin
 export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH=$PATH:/opt/flutter/bin
-export PATH=$PATH:/opt/heroku/bin
-export PATH=$PATH:/opt/eww
-
-export PATH=$PATH:~/.config/nvim/lua-language-server/bin
 
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
@@ -151,7 +144,6 @@ export PATH="$PNPM_HOME:$PATH"
 eval "$(zoxide init zsh)"
 export _ZO_ECHO_STYLE="case-insensitive"
 
-export PATH=$PATH:/home/hakouguelfen/.spicetify
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
@@ -160,3 +152,5 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 [[ ! -r /home/hakouguelfen/.opam/opam-init/init.zsh ]] || source /home/hakouguelfen/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 [ -f "/home/hakouguelfen/.ghcup/env" ] && source "/home/hakouguelfen/.ghcup/env" # ghcup-env
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

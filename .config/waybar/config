@@ -3,7 +3,6 @@
     "position": "top",
     "height": 33,
     "spacing": 4,
-    "margin": 4,
 
     // Choose the order of the modules
     "modules-left": ["clock"],

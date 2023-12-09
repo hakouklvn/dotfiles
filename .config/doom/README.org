@@ -8,10 +8,10 @@
 
 * TABLE OF CONTENTS :toc:
 - [[#defaults][DEFAULTS]]
+- [[#theme][THEME]]
 - [[#flutter][FLUTTER]]
 - [[#org-mode][ORG MODE]]
 - [[#org-auto-tangle][ORG AUTO TANGLE]]
-- [[#treemacs][TREEMACS]]
 - [[#latex][LATEX]]
 - [[#imenu][IMENU]]
 - [[#transparency][TRANSPARENCY]]
@@ -20,35 +20,37 @@
 #+begin_src emacs-lisp
 (setq user-full-name "hakou guelfen"
       user-mail-address "hakoudev@gmail.com")
-(setq doom-font (font-spec :family "Fira Code" :size 22 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Fira Code" :size 20))
-
-(require 'yaml-mode)
-(require 'yaml)
-
-(defun load-yaml-file (filename)
-  (with-temp-buffer
-    (insert-file-contents filename)
-    (goto-char (point-min))
-    (yaml-mode)
-    (setq my-data (yaml-parse-string (buffer-string))))
-  my-data)
-
-(setq my-data (load-yaml-file "~/.config/theme/setting.yaml"))
-(setq emacs-setting (gethash 'emacs (gethash 'setting my-data)))
-(message "The Emacs setting is `%s`." (intern emacs-setting))
-
-(setq doom-theme (intern emacs-setting))
+(setq doom-font (font-spec :family "Fira Code" :size 20 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "Fira Code" :size 18))
 
 (setq display-line-numbers-type t)
 (setq org-directory "~/org/")
-(setq confirm-kill-emacs nil)
-
-(setq haskell-stylish-on-save t)
-
-(add-hook 'before-save-hook #'+format/buffer nil t)
 
 (beacon-mode 1)
+(setq confirm-kill-emacs nil)
+
+;; (setq haskell-stylish-on-save t)
+;; (add-hook 'before-save-hook #'+format/buffer nil t)
+#+end_src
+
+* THEME
+#+begin_src emacs-lisp
+;; (require 'yaml-mode)
+;; (require 'yaml)
+
+;; (defun load-yaml-file (filename)
+;;   (with-temp-buffer
+;;     (insert-file-contents filename)
+;;     (goto-char (point-min))
+;;     (yaml-mode)
+;;     (setq my-data (yaml-parse-string (buffer-string))))
+;;   my-data)
+
+;; (setq my-data (load-yaml-file "~/.config/theme/setting.yaml"))
+;; (setq emacs-setting (gethash 'emacs (gethash 'setting my-data)))
+;; (message "The Emacs setting is `%s`." (intern emacs-setting))
+
+(setq doom-theme 'doom-vibrant)
 #+end_src
 
 * FLUTTER
@@ -58,42 +60,41 @@
 ;; (setenv "PATH" (concat (getenv "PATH") ":/opt/flutter/bin"))
 ;; (setq exec-path (append exec-path '("/opt/flutter/bin")))
 
-(use-package dart-mode
-  :custom
-  (dart-format-on-save t))
+;; (use-package dart-mode
+;;   :custom
+;;   (dart-format-on-save t))
 
-(use-package flutter
-  :after dart-mode
-  :hook (dart-mode . (lambda ()
-    (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t))))
+;; (use-package flutter
+;;   :after dart-mode
+;;   :hook (dart-mode . (lambda ()
+;;     (add-hook 'after-save-hook #'flutter-run-or-hot-reload nil t))))
 
-(defun flutter-run-dev ()
-  (interactive)
-  (let ((flutter-command "flutter run --flavor dev -t lib/main/main_dev.dart"))
-    (flutter-run "--flavor dev -t lib/main/main_dev.dart")))
+;; (defun flutter-run-dev ()
+;;   (interactive)
+;;   (let ((flutter-command "flutter run --flavor dev -t lib/main/main_dev.dart"))
+;;     (flutter-run "--flavor dev -t lib/main/main_dev.dart")))
 
-(defun flutter-run-prod ()
-  (interactive)
-  (let ((flutter-command "flutter run --flavor prod -t lib/main/main_prod.dart"))
-    (flutter-run "--flavor prod -t lib/main/main_prod.dart")))
+;; (defun flutter-run-prod ()
+;;   (interactive)
+;;   (let ((flutter-command "flutter run --flavor prod -t lib/main/main_prod.dart"))
+;;     (flutter-run "--flavor prod -t lib/main/main_prod.dart")))
 
 
-(map! :leader
-      (:prefix ("m" . "prefix")
-        :desc "flutter-run_dev"
-        "f d" #'flutter-run-dev))
+;; (map! :leader
+;;       (:prefix ("m" . "prefix")
+;;         :desc "flutter-run_dev"
+;;         "f d" #'flutter-run-dev))
 
-(map! :leader
-      (:prefix ("m" . "prefix")
-        :desc "flutter-run_prod"
-        "f p" #'flutter-run-prod))
+;; (map! :leader
+;;       (:prefix ("m" . "prefix")
+;;         :desc "flutter-run_prod"
+;;         "f p" #'flutter-run-prod))
 #+end_src
 
 * ORG MODE
 #+begin_src emacs-lisp
 (after! org
   (setq org-directory "~/Documents/Org")
-  (setq org-agenda-files '("~/Documents/Org/hanuut_roadmap.org"))
   (setq org-log-done 'time))
 #+end_src
 
@@ -104,14 +105,6 @@
   :hook (org-mode . org-auto-tangle-mode)
   :config
   (setq org-auto-tangle-default t))
-#+end_src
-
-* TREEMACS
-#+begin_src emacs-lisp
-(use-package! treemacs
-  :defer t
-  :config
-  (setq doom-themes-treemacs-theme "doom-colors"))
 #+end_src
 
 * LATEX
@@ -142,3 +135,36 @@
 #+begin_src emacs-lisp
 (add-to-list 'default-frame-alist '(alpha-background . 90))
 #+end_src
+
+
+;; Whenever you reconfigure a package, make sure to wrap your config in an
+;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
+;;
+;;   (after! PACKAGE
+;;     (setq x y))
+;;
+;; The exceptions to this rule:
+;;
+;;   - Setting file/directory variables (like `org-directory')
+;;   - Setting variables which explicitly tell you to set them before their
+;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
+;;   - Setting doom variables (which start with 'doom-' or '+').
+;;
+;; Here are some additional functions/macros that will help you configure Doom.
+;;
+;; - `load!' for loading external *.el files relative to this one
+;; - `use-package!' for configuring packages
+;; - `after!' for running code after a package has loaded
+;; - `add-load-path!' for adding directories to the `load-path', relative to
+;;   this file. Emacs searches the `load-path' when you load packages with
+;;   `require' or `use-package'.
+;; - `map!' for binding new keys
+;;
+;; To get information about any of these functions/macros, move the cursor over
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
+;; This will open documentation for it, including demos of how they are used.
+;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+;; etc).
+;;
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+;; they are implemented.
